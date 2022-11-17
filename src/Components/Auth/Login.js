@@ -1,9 +1,14 @@
 import React from 'react';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
+import Loading from '../../Shared/Loading';
 
 const Login = () => {
 const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+
+if(loading){
+    return <Loading/>
+}
 
     return (
         <div className='h-screen m-auto flex justify-end items-center p-5'>
