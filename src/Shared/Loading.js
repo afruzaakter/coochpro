@@ -15,7 +15,7 @@ const Loading = () => {
         <div className='m-auto h-screen flex justify-center items-center'>
             <HashLoader
 
-                 color={'green'}
+                 color={'#0f766e'}
                 loading={loading}
                 size={100}
                 aria-label="Loading Spinner"
