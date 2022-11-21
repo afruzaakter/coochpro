@@ -23,6 +23,13 @@ const Login = () => {
         navigate("/dashboard");
     }
 
+    let signInError;
+
+    if(error || gError){
+        signInError=<p className='text-red-500'> <small>{error.message || gError.message}</small> </p>
+    }
+
+
     const onSubmit = data => {
         console.log(data)
         signInWithEmailAndPassword(data.email, data.password);
@@ -82,6 +89,7 @@ const Login = () => {
                                 {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
                             </label>
                         </div>
+                        {signInError}
                         <input className='btn w-full btn-primary text-white text-xl max-w-xs' type="submit" value='Login' />
                     </form>
 

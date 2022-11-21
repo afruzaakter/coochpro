@@ -58,7 +58,7 @@ const Navbar = () => {
                     </ul>
 
                 </div>
-                <a className="btn btn-ghost normal-case text-2xl">CoochPro</a>
+                <p className=" text-gray-700 normal-case text-2xl">CoochPro</p>
                 <a className="btn btn-ghost normal-case text-xl ml-10 text-teal-700">Welcome back, Android
                     <IoMdHand className='text-yellow-500 ml-2' />  </a>
             </div>
