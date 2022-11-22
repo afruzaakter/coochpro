@@ -29,7 +29,7 @@ const Dashboard = () => {
 
     return (
         <div className='' >
-            <div className="drawer drawer-mobile">
+            <div className="drawer drawer-mobile ">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content">
                     <h1 className='font-bold text-3xl mt-8 ml-4'>Dashboard</h1>
@@ -38,23 +38,23 @@ const Dashboard = () => {
                     <label for="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
 
                 </div>
-                <div className="drawer-side ">
+                <div className="drawer-side w-60">
                     <label for="my-drawer-2" className="drawer-overlay"></label>
-                    <ul className="menu p-4 overflow-y-auto rounded-r-xl  w-48 bg-gray-200 text-base-content">
+                    <ul className="menu p-4 overflow-y-auto rounded-r-xl   bg-gray-200 text-base-content">
                         <li className='my-5'><NavLink to='/dashboard'> <MdDashboard /> Dashboard</NavLink></li>
                         <li className='text-primary font-bold'><NavLink to='/dashboard/messenger'><BsMessenger /> Messenger</NavLink></li>
                         <li className='text-primary font-bold'><NavLink to='/dashboard/calendar'><BsFillCalendarMinusFill /> Calendar </NavLink></li>
                         {/* ----------------Setting page start --------------------------------    */}
                         <div class="dropdown">                   
-                            <p tabindex="0" className="text-primary font-bold m-1 flex justify-center items-center gap-4"> <FiSettings /> Settings<AiOutlineDown /></p>
+                            <p tabindex="0" className="text-primary font-bold ml-3 flex  items-center gap-4"> <FiSettings /> Settings<AiOutlineDown /></p>
                            
 
-                            <ul tabindex="0" class="dropdown-content menu p-2 gap-2 w-44 shadow bg-base-100  ">
-                                <li className='text-primary  font-bold '><NavLink to='/dashboard/settings'>
+                            <ul tabindex="0" className="dropdown-content menu p-2 gap-2 rounded-lg w-60 shadow bg-gray-200  ">
+                                <li className='text-primary  font-bold ml-8 '><NavLink to='/dashboard/settings'>
                                 <MdKeyboardArrowRight/>Setting </NavLink></li>
-                                <li className='text-primary  font-bold '><NavLink to='/dashboard/gender'>
+                                <li className='text-primary ml-8 font-bold '><NavLink to='/dashboard/gender'>
                                  <MdKeyboardArrowRight/>Gender </NavLink></li>
-                                <li className='text-primary  font-bold '><NavLink to='/dashboard/religion'>
+                                <li className='text-primary ml-8 font-bold '><NavLink to='/dashboard/religion'>
                                    <MdKeyboardArrowRight/>Religion</NavLink></li>
                             </ul>
                         </div>

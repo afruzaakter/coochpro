@@ -10,6 +10,7 @@ import Calendar from './Components/Dashboard/Calendar';
 import Dashboard from './Components/Dashboard/Dashboard';
 import Profile from './Components/Dashboard/Profile';
 import Gender from './Components/Dashboard/Settings/Gender';
+import GenderEdit from './Components/Dashboard/Settings/GenderEdit';
 import Religion from './Components/Dashboard/Settings/Religion';
 import Settings from './Components/Dashboard/Settings/Settings';
 import Navbar from './Shared/Navbar';
@@ -35,6 +36,7 @@ function App() {
          <Route path='settings' element={<Settings/>}/>
          <Route path ='gender' element={<Gender/>}/>
          <Route path ='religion' element={<Religion/>}/>
+         <Route path ='genderEdit/:id' element={<GenderEdit/>}/>
   
          {/* <Route path='profile' element ={<Profile/>}>     
         </Route> */}
