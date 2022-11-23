@@ -19,11 +19,11 @@ const Gender = () => {
         const gender = {
             gender: data.gender
         };
-        console.log(gender);
+        // console.log(gender);
 
         try {
             const { data } = await axios.post("http://localhost:5000/gender", gender);
-            console.log(data)
+            // console.log(data)
             if (!data.success) {
                 return toast(data.error)
             }

@@ -56,6 +56,8 @@ const Dashboard = () => {
                                  <MdKeyboardArrowRight/>Gender </NavLink></li>
                                 <li className='text-primary ml-8 font-bold '><NavLink to='/dashboard/religion'>
                                    <MdKeyboardArrowRight/>Religion</NavLink></li>
+                                <li className='text-primary ml-8 font-bold '><NavLink to='/dashboard/maritalStatus'>
+                                   <MdKeyboardArrowRight/>Marital Status</NavLink></li>
                             </ul>
                         </div>
 

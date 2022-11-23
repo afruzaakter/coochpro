@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast, ToastContainer } from 'react-toastify';
 import { FaEdit } from 'react-icons/fa';
+import { MdDelete } from 'react-icons/md';
 import 'react-toastify/dist/ReactToastify.css';
+import { Link } from 'react-router-dom';
 
 const Religion = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
@@ -41,6 +43,27 @@ const Religion = () => {
             setRefresh(!refresh);
 
     }, []);
+
+       // -----------------------Delete method ----------------------
+
+   const  handleDelete = (id) => {
+    const proceed  = window.confirm('Are you sure?')
+    if(proceed){
+        const url = `http://localhost:5000/gender/${id}`
+        console.log(url)
+        fetch(url, {
+            method: 'DELETE'
+        })
+        .then(res => res.json())
+        .then(data =>{
+            console.log(data)
+            const remaining = religions.filter(religion => religion._id !==id)
+            setReligions(remaining);
+        })
+
+    }
+
+   }
 
     return (
         <div className='flex justify-start ml-28 items-start mt-16 gap-14'>
@@ -91,12 +114,11 @@ const Religion = () => {
                                 <tr>
                                     <th>{index + 1}</th>
                                     <td>{religion.religion}</td>
-                                    <td>
-                                       <FaEdit />
+                                    <td className='flex gap-4'>
+                                    <Link to={`/dashboard/religionEdit/${religion._id}`}><FaEdit /></Link>
+                                    <button onClick={() => handleDelete(religion._id)}><MdDelete/></button>
                                     </td>
-                                    {/* <td>
-                                        <Link to={`/genderEdit/${gender._id}`}><FaEdit /></Link>
-                                    </td> */}
+                                   
 
                                 </tr>
                             )

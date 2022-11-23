@@ -11,7 +11,9 @@ import Dashboard from './Components/Dashboard/Dashboard';
 import Profile from './Components/Dashboard/Profile';
 import Gender from './Components/Dashboard/Settings/Gender';
 import GenderEdit from './Components/Dashboard/Settings/GenderEdit';
+import MaritalStatus from './Components/Dashboard/Settings/MaritalStatus';
 import Religion from './Components/Dashboard/Settings/Religion';
+import ReligionEdit from './Components/Dashboard/Settings/ReligionEdit';
 import Settings from './Components/Dashboard/Settings/Settings';
 import Navbar from './Shared/Navbar';
 import NotFound from './Shared/NotFound';
@@ -35,8 +37,10 @@ function App() {
          <Route path='calendar' element={<Calendar/>}/>
          <Route path='settings' element={<Settings/>}/>
          <Route path ='gender' element={<Gender/>}/>
-         <Route path ='religion' element={<Religion/>}/>
          <Route path ='genderEdit/:id' element={<GenderEdit/>}/>
+         <Route path ='religion' element={<Religion/>}/>
+         <Route path ='religionEdit/:id' element={<ReligionEdit/>}/>
+         <Route path ='maritalStatus' element={<MaritalStatus/>}/>
   
          {/* <Route path='profile' element ={<Profile/>}>     
         </Route> */}
