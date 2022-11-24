@@ -1,6 +1,5 @@
 
 import { Route, Routes } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
 import './App.css';
 import Login from './Components/Auth/Login';
 import RequireAuth from './Components/Auth/RequireAuth';
@@ -8,9 +7,11 @@ import Reset from './Components/Auth/Reset';
 import SignUp from './Components/Auth/SignUp';
 import Calendar from './Components/Dashboard/Calendar';
 import Dashboard from './Components/Dashboard/Dashboard';
-import Profile from './Components/Dashboard/Profile';
+import BloodGroup from './Components/Dashboard/Settings/BloodGroup';
+import BloodGroupEdit from './Components/Dashboard/Settings/BloodGroupEdit';
 import Gender from './Components/Dashboard/Settings/Gender';
 import GenderEdit from './Components/Dashboard/Settings/GenderEdit';
+import MaritalEdit from './Components/Dashboard/Settings/MaritalEdit';
 import MaritalStatus from './Components/Dashboard/Settings/MaritalStatus';
 import Religion from './Components/Dashboard/Settings/Religion';
 import ReligionEdit from './Components/Dashboard/Settings/ReligionEdit';
@@ -41,6 +42,9 @@ function App() {
          <Route path ='religion' element={<Religion/>}/>
          <Route path ='religionEdit/:id' element={<ReligionEdit/>}/>
          <Route path ='maritalStatus' element={<MaritalStatus/>}/>
+         <Route path ='maritalEdit/:id' element={<MaritalEdit/>}/>
+         <Route path ='bloodgroup' element={<BloodGroup/>}/>
+         <Route path ='bloodgroupEdit/:id' element={<BloodGroupEdit/>}/>
   
          {/* <Route path='profile' element ={<Profile/>}>     
         </Route> */}

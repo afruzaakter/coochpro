@@ -45,7 +45,7 @@ const Dashboard = () => {
                         <li className='text-primary font-bold'><NavLink to='/dashboard/messenger'><BsMessenger /> Messenger</NavLink></li>
                         <li className='text-primary font-bold'><NavLink to='/dashboard/calendar'><BsFillCalendarMinusFill /> Calendar </NavLink></li>
                         {/* ----------------Setting page start --------------------------------    */}
-                        <div class="dropdown">                   
+                        <div className="dropdown">                   
                             <p tabindex="0" className="text-primary font-bold ml-3 flex  items-center gap-4"> <FiSettings /> Settings<AiOutlineDown /></p>
                            
 
@@ -58,6 +58,8 @@ const Dashboard = () => {
                                    <MdKeyboardArrowRight/>Religion</NavLink></li>
                                 <li className='text-primary ml-8 font-bold '><NavLink to='/dashboard/maritalStatus'>
                                    <MdKeyboardArrowRight/>Marital Status</NavLink></li>
+                                <li className='text-primary ml-8 font-bold '><NavLink to='/dashboard/bloodgroup'>
+                                   <MdKeyboardArrowRight/>Blood Group</NavLink></li>
                             </ul>
                         </div>
 

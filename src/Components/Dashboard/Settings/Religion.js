@@ -34,13 +34,11 @@ const Religion = () => {
 
             // ---------------------get method -----------------
     const [religions, setReligions] = useState([]);
-    const  [refresh, setRefresh] = React.useState(false)
    
     useEffect(() => {
         fetch('http://localhost:5000/religion')
             .then(res => res.json())
             .then(data => setReligions(data));
-            setRefresh(!refresh);
 
     }, []);
 
@@ -49,7 +47,7 @@ const Religion = () => {
    const  handleDelete = (id) => {
     const proceed  = window.confirm('Are you sure?')
     if(proceed){
-        const url = `http://localhost:5000/gender/${id}`
+        const url = `http://localhost:5000/religion/${id}`
         console.log(url)
         fetch(url, {
             method: 'DELETE'

@@ -4,8 +4,7 @@ import { useForm } from 'react-hook-form';
 import { toast, ToastContainer } from 'react-toastify';
 import { FaEdit } from 'react-icons/fa';
 import { MdDelete } from 'react-icons/md';
-import Loading from '../../../Shared/Loading';
-import { Link, useParams } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
 
 
