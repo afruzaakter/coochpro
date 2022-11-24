@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { toast, ToastContainer } from 'react-toastify';
 import { FaEdit } from 'react-icons/fa';
 import { MdDelete } from 'react-icons/md';
 import { Link } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
 
-const Location = () => {
+const District = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const onSubmit = async (data) => {
-        const url = 'http://localhost:5000/location'
+        const url = 'http://localhost:5000/district'
         fetch(url, {
             method: 'POST',
             body: JSON.stringify(data),
@@ -32,12 +32,12 @@ const Location = () => {
     }
 
     // ---------------------get method -----------------
-    const [locations, setLocations] = useState([]);
+    const [districts, setDistricts] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/location')
+        fetch('http://localhost:5000/district')
             .then(res => res.json())
-            .then(data => setLocations(data));
+            .then(data => setDistricts(data));
 
     }, []);
 
@@ -46,7 +46,7 @@ const Location = () => {
     const handleDelete = (id) => {
         const proceed = window.confirm('Are you sure?')
         if (proceed) {
-            const url = `http://localhost:5000/location/${id}`
+            const url = `http://localhost:5000/district/${id}`
             console.log(url)
             fetch(url, {
                 method: 'DELETE'
@@ -54,8 +54,8 @@ const Location = () => {
                 .then(res => res.json())
                 .then(data => {
                     console.log(data)
-                    const remaining = locations.filter(location => location._id !== id)
-                    setLocations(remaining);
+                    const remaining = districts.filter(district => district._id !== id)
+                    setDistricts(remaining);
                 })
 
         }
@@ -65,15 +65,15 @@ const Location = () => {
         <div className='flex justify-start ml-28 items-start mt-16 gap-14'>
             <div className="card w-96 bg-gray-200 ">
                 <div className="card-body">
-                    <h2 className="text-center text-xl font-bold">Location</h2>
+                    <h2 className="text-center text-xl font-bold">District</h2>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         {/* -----------------------Male Field ------------------------------ */}
                         <div className="form-control w-full max-w-xs">
                             <input
                                 type="text"
-                                placeholder="Location"
+                                placeholder="District"
                                 className="input input-bordered font-bold w-full max-w-xs login-container-input"
-                                {...register("location", {
+                                {...register("district", {
                                     required: {
                                         value: true,
                                         message: "❌  Required"
@@ -81,7 +81,7 @@ const Location = () => {
                                 })}
                             />
                             <label className="label">
-                                {errors.location?.type === 'required' && <span className="label-text-alt text-red-700">{errors.location.message}</span>}
+                                {errors.district?.type === 'required' && <span className="label-text-alt text-red-700">{errors.district.message}</span>}
 
                             </label>
                         </div>
@@ -97,7 +97,7 @@ const Location = () => {
                     <thead>
                         <tr>
                             <th>SL</th>
-                            <th>Location</th>
+                            <th>District</th>
                             <th>Action</th>
 
                         </tr>
@@ -106,13 +106,13 @@ const Location = () => {
                         {/* <!-- row 1 --> */}
 
                         {
-                            locations?.map((location, index) =>
+                            districts?.map((district, index) =>
                                 <tr>
                                     <th>{index + 1}</th>
-                                    <td>{location.location}</td>
+                                    <td>{district.district}</td>
                                     <td className='flex gap-4'>
-                                        <Link to={`/dashboard/locationEdit/${location._id}`}><FaEdit /></Link>
-                                        <button onClick={() => handleDelete(location._id)}><MdDelete /></button>
+                                        <Link to={`/dashboard/districtEdit/${district._id}`}><FaEdit /></Link>
+                                        <button onClick={() => handleDelete(district._id)}><MdDelete /></button>
                                     </td>
 
 
@@ -129,4 +129,4 @@ const Location = () => {
     );
 };
 
-export default Location;
+export default District;

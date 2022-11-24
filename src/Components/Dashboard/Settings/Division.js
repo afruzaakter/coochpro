@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import { FaEdit } from 'react-icons/fa';
 import { MdDelete } from 'react-icons/md';
-import { Link } from 'react-router-dom';
 
-const Location = () => {
+const Division = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const onSubmit = async (data) => {
-        const url = 'http://localhost:5000/location'
+        const url = 'http://localhost:5000/division'
         fetch(url, {
             method: 'POST',
             body: JSON.stringify(data),
@@ -32,12 +32,12 @@ const Location = () => {
     }
 
     // ---------------------get method -----------------
-    const [locations, setLocations] = useState([]);
+    const [divisions, setDivisions] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/location')
+        fetch('http://localhost:5000/division')
             .then(res => res.json())
-            .then(data => setLocations(data));
+            .then(data => setDivisions(data));
 
     }, []);
 
@@ -46,7 +46,7 @@ const Location = () => {
     const handleDelete = (id) => {
         const proceed = window.confirm('Are you sure?')
         if (proceed) {
-            const url = `http://localhost:5000/location/${id}`
+            const url = `http://localhost:5000/division/${id}`
             console.log(url)
             fetch(url, {
                 method: 'DELETE'
@@ -54,8 +54,8 @@ const Location = () => {
                 .then(res => res.json())
                 .then(data => {
                     console.log(data)
-                    const remaining = locations.filter(location => location._id !== id)
-                    setLocations(remaining);
+                    const remaining = divisions.filter(division => division._id !== id)
+                    setDivisions(remaining);
                 })
 
         }
@@ -65,15 +65,15 @@ const Location = () => {
         <div className='flex justify-start ml-28 items-start mt-16 gap-14'>
             <div className="card w-96 bg-gray-200 ">
                 <div className="card-body">
-                    <h2 className="text-center text-xl font-bold">Location</h2>
+                    <h2 className="text-center text-xl font-bold">Division</h2>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         {/* -----------------------Male Field ------------------------------ */}
                         <div className="form-control w-full max-w-xs">
                             <input
                                 type="text"
-                                placeholder="Location"
+                                placeholder="Division"
                                 className="input input-bordered font-bold w-full max-w-xs login-container-input"
-                                {...register("location", {
+                                {...register("division", {
                                     required: {
                                         value: true,
                                         message: "❌  Required"
@@ -81,7 +81,7 @@ const Location = () => {
                                 })}
                             />
                             <label className="label">
-                                {errors.location?.type === 'required' && <span className="label-text-alt text-red-700">{errors.location.message}</span>}
+                                {errors.division?.type === 'required' && <span className="label-text-alt text-red-700">{errors.division.message}</span>}
 
                             </label>
                         </div>
@@ -97,7 +97,7 @@ const Location = () => {
                     <thead>
                         <tr>
                             <th>SL</th>
-                            <th>Location</th>
+                            <th>Division</th>
                             <th>Action</th>
 
                         </tr>
@@ -106,13 +106,13 @@ const Location = () => {
                         {/* <!-- row 1 --> */}
 
                         {
-                            locations?.map((location, index) =>
+                            divisions?.map((division, index) =>
                                 <tr>
                                     <th>{index + 1}</th>
-                                    <td>{location.location}</td>
+                                    <td>{division.division}</td>
                                     <td className='flex gap-4'>
-                                        <Link to={`/dashboard/locationEdit/${location._id}`}><FaEdit /></Link>
-                                        <button onClick={() => handleDelete(location._id)}><MdDelete /></button>
+                                        <Link to={`/dashboard/divisionEdit/${division._id}`}><FaEdit /></Link>
+                                        <button onClick={() => handleDelete(division._id)}><MdDelete /></button>
                                     </td>
 
 
@@ -129,4 +129,4 @@ const Location = () => {
     );
 };
 
-export default Location;
+export default Division;

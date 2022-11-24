@@ -46,10 +46,10 @@ const Dashboard = () => {
                         <li className='text-primary font-bold'><NavLink to='/dashboard/calendar'><BsFillCalendarMinusFill /> Calendar </NavLink></li>
                         {/* ----------------Setting page start --------------------------------    */}
                         <div className="dropdown">                   
-                            <p tabindex="0" className="text-primary font-bold ml-3 flex  items-center gap-4"> <FiSettings /> Settings<AiOutlineDown /></p>
+                            <p tabIndex="0" className="text-primary font-bold ml-3 flex  items-center gap-4"> <FiSettings /> Settings<AiOutlineDown /></p>
                            
 
-                            <ul tabindex="0" className="dropdown-content menu p-2 gap-2 rounded-lg w-60 shadow bg-gray-200  ">
+                            <ul tabIndex="0" className="dropdown-content menu p-2 gap-2 rounded-lg w-60 shadow bg-gray-200  ">
                                 <li className='text-primary  font-bold ml-8 '><NavLink to='/dashboard/settings'>
                                 <MdKeyboardArrowRight/>Setting </NavLink></li>
                                 <li className='text-primary ml-8 font-bold '><NavLink to='/dashboard/gender'>
@@ -60,6 +60,12 @@ const Dashboard = () => {
                                    <MdKeyboardArrowRight/>Marital Status</NavLink></li>
                                 <li className='text-primary ml-8 font-bold '><NavLink to='/dashboard/bloodgroup'>
                                    <MdKeyboardArrowRight/>Blood Group</NavLink></li>
+                                <li className='text-primary ml-8 font-bold '><NavLink to='/dashboard/location'>
+                                   <MdKeyboardArrowRight/>Location</NavLink></li>
+                                <li className='text-primary ml-8 font-bold '><NavLink to='/dashboard/division'>
+                                   <MdKeyboardArrowRight/>Division</NavLink></li>
+                                <li className='text-primary ml-8 font-bold '><NavLink to='/dashboard/district'>
+                                   <MdKeyboardArrowRight/>District</NavLink></li>
                             </ul>
                         </div>
 

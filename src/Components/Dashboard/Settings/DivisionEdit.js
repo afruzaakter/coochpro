@@ -3,15 +3,15 @@ import { useForm } from 'react-hook-form';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 
-const ReligionEdit = () => {
+const DivisionEdit = () => {
     const { id } = useParams();
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const navigate = useNavigate()
     const onSubmit = (data) => {
-        const religion = {
-            religion: data.religion
+        const division = {
+            division: data.division
         };
-        const url = `http://localhost:5000/religion/${id}`;
+        const url = `http://localhost:5000/division/${id}`;
 
         console.log(url)
 
@@ -20,7 +20,7 @@ const ReligionEdit = () => {
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(religion)
+            body: JSON.stringify(division)
         })
             .then(res => res.json())
             .then(data => {
@@ -28,21 +28,21 @@ const ReligionEdit = () => {
                 toast('Users Update Successfully !!!');
                 reset();
             })
-        navigate('/dashboard/religion')
+        navigate('/dashboard/division')
     }
     return (
         <div className='flex justify-start ml-28 items-start mt-16 gap-14'>
             <div className="card w-96 bg-gray-200 ">
                 <div className="card-body">
-                    <h2 className="text-center text-xl font-bold">Update Religion</h2>
+                    <h2 className="text-center text-xl font-bold">Update Division</h2>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         {/* -----------------------Male Field ------------------------------ */}
                         <div className="form-control w-full max-w-xs">
                             <input
                                 type="text"
-                                placeholder="Religion"
+                                placeholder="Division"
                                 className="input input-bordered font-bold w-full max-w-xs login-container-input"
-                                {...register("religion", {
+                                {...register("division", {
                                     required: {
                                         value: true,
                                         message: "❌  Required"
@@ -50,13 +50,13 @@ const ReligionEdit = () => {
                                 })}
                             />
                             <label className="label">
-                                {errors.gender?.type === 'required' && <span className="label-text-alt text-red-700">{errors.gender.message}</span>}
+                                {errors.division?.type === 'required' && <span className="label-text-alt text-red-700">{errors.division.message}</span>}
 
                             </label>
                         </div>
                         <div className='flex justify-between mt-10'>
                             <input className='input input-bordered input-primary  max-w-xs cursor-pointer font-bold uppercase hover:bg-primary hover:text-white ' type="submit" value='Update' />
-                            <Link to='/dashboard/religion' className='btn '> Back</Link>
+                            <Link to='/dashboard/division' className='btn '> Back</Link>
 
                         </div>
                     </form>
@@ -67,4 +67,4 @@ const ReligionEdit = () => {
     );
 };
 
-export default ReligionEdit;
+export default DivisionEdit;
