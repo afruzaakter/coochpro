@@ -3,6 +3,7 @@ import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-fi
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import useToken from '../../hooks/useToken';
 import Loading from '../../Shared/Loading';
 
 const SignUp = () => {
@@ -16,14 +17,21 @@ const SignUp = () => {
         error,
       ] = useCreateUserWithEmailAndPassword(auth);
 
+    const [token] = useToken(user || gUser);  
+
     if (loading || gLoading) {
         return <Loading />
     }
 
     
-    if(gUser || user){
+    if(token){
         navigate("/dashboard");
     }
+
+    // if(gUser || user){
+    //  console.log(user || gUser)
+    //     // navigate("/dashboard");
+    // }
 
     let signUpError;
 
@@ -33,7 +41,6 @@ const SignUp = () => {
 
     const onSubmit = data => {
         console.log(data);
-        // createUserWithEmailAndPassword(data.phone, data.email, data.password)
         createUserWithEmailAndPassword( data.email, data.password)
     }
 

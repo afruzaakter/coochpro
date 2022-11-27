@@ -5,10 +5,17 @@ import Login from './Components/Auth/Login';
 import RequireAuth from './Components/Auth/RequireAuth';
 import Reset from './Components/Auth/Reset';
 import SignUp from './Components/Auth/SignUp';
+import AllUser from './Components/Dashboard/AllUser';
 import Calendar from './Components/Dashboard/Calendar';
 import Dashboard from './Components/Dashboard/Dashboard';
+import Profile from './Components/Dashboard/Profile';
+import ProfileEdit from './Components/Dashboard/ProfileEdit';
 import BloodGroup from './Components/Dashboard/Settings/BloodGroup';
 import BloodGroupEdit from './Components/Dashboard/Settings/BloodGroupEdit';
+import Department from './Components/Dashboard/Settings/Department';
+import DepartmentEdit from './Components/Dashboard/Settings/DepartmentEdit';
+import Designation from './Components/Dashboard/Settings/Designation';
+import DesignationEdit from './Components/Dashboard/Settings/DesignationEdit';
 import District from './Components/Dashboard/Settings/District';
 import DistrictEdit from './Components/Dashboard/Settings/DistrictEdit';
 import Division from './Components/Dashboard/Settings/Division';
@@ -57,9 +64,15 @@ function App() {
          <Route path ='divisionEdit/:id' element={<DivisionEdit/>}/>
          <Route path ='district' element={<District/>}/>
          <Route path ='districtEdit/:id' element={<DistrictEdit/>}/>
+         <Route path ='department' element={<Department/>}/>
+         <Route path ='departmentEdit/:id' element={<DepartmentEdit/>}/>
+         <Route path ='designation' element={<Designation/>}/>
+         <Route path ='designationEdit/:id' element={<DesignationEdit/>}/>
   
-         {/* <Route path='profile' element ={<Profile/>}>     
-        </Route> */}
+         <Route path='allUser' element ={<AllUser/>} />     
+         <Route path='profile' element ={<Profile/>} />     
+         <Route path='profileEdit' element ={<ProfileEdit/>} />     
+  
 
          </Route>
 

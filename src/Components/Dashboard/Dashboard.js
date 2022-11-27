@@ -4,13 +4,16 @@ import { Link, NavLink, Outlet } from 'react-router-dom';
 import auth from '../../firebase.init';
 import Loading from '../../Shared/Loading';
 import { MdDashboard } from 'react-icons/md';
-import { BsMessenger } from 'react-icons/bs';
+import { MdManageAccounts } from 'react-icons/md';
 import { BsFillCalendarMinusFill } from 'react-icons/bs';
 import { AiOutlineDown } from 'react-icons/ai';
 import { FiSettings } from 'react-icons/fi';
 import { FaSignOutAlt } from 'react-icons/fa';
 import { MdKeyboardArrowRight } from 'react-icons/md';
+import { AiOutlineUsergroupAdd } from 'react-icons/ai';
+import { FaUserCircle } from 'react-icons/fa';
 import { signOut } from 'firebase/auth';
+import AllUser from './AllUser';
 
 // import { Sidebar, Menu, MenuItem, SubMenu, useProSidebar, ProSidebarProvider, MenuContext } from 'react-pro-sidebar';
 
@@ -41,17 +44,18 @@ const Dashboard = () => {
                 <div className="drawer-side w-60">
                     <label for="my-drawer-2" className="drawer-overlay"></label>
                     <ul className="menu p-4 overflow-y-auto rounded-r-xl   bg-gray-200 text-base-content">
-                        <li className='my-5'><NavLink to='/dashboard'> <MdDashboard /> Dashboard</NavLink></li>
-                        <li className='text-primary font-bold'><NavLink to='/dashboard/messenger'><BsMessenger /> Messenger</NavLink></li>
-                        <li className='text-primary font-bold'><NavLink to='/dashboard/calendar'><BsFillCalendarMinusFill /> Calendar </NavLink></li>
+                        <li className='my-5 mb-2'><NavLink to='/dashboard'> <MdDashboard /> Dashboard</NavLink></li>
+                        <li className='text-primary mb-2 font-bold'><NavLink to='/dashboard/profile'> <FaUserCircle /> Profile</NavLink></li>
+                        <li className='text-primary mb-2 font-bold'><NavLink to='/dashboard/allUser'> <AiOutlineUsergroupAdd /> All Users</NavLink></li>
+                       
                         {/* ----------------Setting page start --------------------------------    */}
-                        <div className="dropdown">                   
-                            <p tabIndex="0" className="text-primary font-bold ml-3 flex  items-center gap-4"> <FiSettings /> Settings<AiOutlineDown /></p>
+                        <div className="dropdown mb-2">                   
+                            <p tabIndex="0" className="text-primary font-bold ml-4 flex  items-center gap-4"> <FiSettings /> Settings<AiOutlineDown /></p>
                            
 
-                            <ul tabIndex="0" className="dropdown-content menu p-2 gap-2 rounded-lg w-60 shadow bg-gray-200  ">
-                                <li className='text-primary  font-bold ml-8 '><NavLink to='/dashboard/settings'>
-                                <MdKeyboardArrowRight/>Setting </NavLink></li>
+                            <ul tabIndex="0" className="dropdown-content menu  gap-2 p-2 rounded-lg w-60 shadow bg-gray-200  ">
+                                {/* <li className='text-primary  font-bold ml-8 '><NavLink to='/dashboard/settings'>
+                                <MdKeyboardArrowRight/>Setting </NavLink></li> */}
                                 <li className='text-primary ml-8 font-bold '><NavLink to='/dashboard/gender'>
                                  <MdKeyboardArrowRight/>Gender </NavLink></li>
                                 <li className='text-primary ml-8 font-bold '><NavLink to='/dashboard/religion'>
@@ -66,12 +70,17 @@ const Dashboard = () => {
                                    <MdKeyboardArrowRight/>Division</NavLink></li>
                                 <li className='text-primary ml-8 font-bold '><NavLink to='/dashboard/district'>
                                    <MdKeyboardArrowRight/>District</NavLink></li>
+                                <li className='text-primary ml-8 font-bold '><NavLink to='/dashboard/department'>
+                                   <MdKeyboardArrowRight/>Department</NavLink></li>
+                                <li className='text-primary ml-8 font-bold '><NavLink to='/dashboard/designation'>
+                                   <MdKeyboardArrowRight/>Designation</NavLink></li>
                             </ul>
                         </div>
 
                         {/* ----------------Setting page start --------------------------------    */}
+                        <li className='text-primary font-bold mb-2'><NavLink to='/dashboard/calendar'><BsFillCalendarMinusFill /> Calendar </NavLink></li>
 
-                        <li className='text-primary font-bold'><Link to='/dashboard'>
+                        <li className='text-primary font-bold mb-2'><Link to='/dashboard'>
                             <span className='flex items-center mr-8' onClick={handleSignOut} ><FaSignOutAlt className='mr-2' /> Logout</span>
                         </Link></li>
 
