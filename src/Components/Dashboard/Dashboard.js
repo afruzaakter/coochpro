@@ -14,11 +14,13 @@ import { AiOutlineUsergroupAdd } from 'react-icons/ai';
 import { FaUserCircle } from 'react-icons/fa';
 import { signOut } from 'firebase/auth';
 import AllUser from './AllUser';
+import useAdmin from '../../hooks/useAdmin';
 
 // import { Sidebar, Menu, MenuItem, SubMenu, useProSidebar, ProSidebarProvider, MenuContext } from 'react-pro-sidebar';
 
 const Dashboard = () => {
     const [user, loading] = useAuthState(auth);
+    const [admin] = useAdmin(user);
 
     // const { collapseSidebar } = useProSidebar();
 
@@ -46,8 +48,10 @@ const Dashboard = () => {
                     <ul className="menu p-4 overflow-y-auto rounded-r-xl   bg-gray-200 text-base-content">
                         <li className='my-5 mb-2'><NavLink to='/dashboard'> <MdDashboard /> Dashboard</NavLink></li>
                         <li className='text-primary mb-2 font-bold'><NavLink to='/dashboard/profile'> <FaUserCircle /> Profile</NavLink></li>
-                        <li className='text-primary mb-2 font-bold'><NavLink to='/dashboard/allUser'> <AiOutlineUsergroupAdd /> All Users</NavLink></li>
-                       
+                        {
+                            admin && <li className='text-primary mb-2 font-bold'><NavLink to='/dashboard/allUser'> <AiOutlineUsergroupAdd /> All Users</NavLink></li>
+
+                        }                       
                         {/* ----------------Setting page start --------------------------------    */}
                         <div className="dropdown mb-2">                   
                             <p tabIndex="0" className="text-primary font-bold ml-4 flex  items-center gap-4"> <FiSettings /> Settings<AiOutlineDown /></p>
@@ -78,7 +82,8 @@ const Dashboard = () => {
                         </div>
 
                         {/* ----------------Setting page start --------------------------------    */}
-                        <li className='text-primary font-bold mb-2'><NavLink to='/dashboard/calendar'><BsFillCalendarMinusFill /> Calendar </NavLink></li>
+                        
+                        { admin && <li className='text-primary font-bold mb-2'><NavLink to='/dashboard/calendar'><BsFillCalendarMinusFill /> Calendar </NavLink></li>}
 
                         <li className='text-primary font-bold mb-2'><Link to='/dashboard'>
                             <span className='flex items-center mr-8' onClick={handleSignOut} ><FaSignOutAlt className='mr-2' /> Logout</span>

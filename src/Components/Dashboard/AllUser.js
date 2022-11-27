@@ -27,7 +27,7 @@ const AllUser = () => {
                             <th>SL</th>
                             <th>Email</th>
                             <th>Role</th>
-                            <th>Favorite Color</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
