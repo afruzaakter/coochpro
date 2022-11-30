@@ -1,11 +1,11 @@
 import React from 'react';
 
-const ProfileEdit = () => {
+const Home = () => {
     return (
         <div>
-            Edit Profile
+            <Home/>
         </div>
     );
 };
 
-export default ProfileEdit;
+export default Home;

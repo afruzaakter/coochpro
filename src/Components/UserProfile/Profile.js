@@ -6,12 +6,11 @@ import auth from '../../firebase.init';
 const Profile = () => {
     const [user] = useAuthState(auth)
     return (
-       <div>
-        <h1 className='text-2xl text-center font-bold mb-10'>My Profile</h1>
-         <div class=" bg-base-100  flex justify-center items-center gap-16">
+       <div className='ml-10 mt-5'>
+         <div class=" bg-base-100  lg:flex justify-center items-center gap-16">
            <div> 
-            <figure><img className='w-44 h-44' src={user.photoURL} alt="user photo" /></figure>
-            {/* <input>Upload Photo</input> */}
+           <h1 className='text-2xl  font-bold ml-3'>My Profile</h1>
+            {/* <figure><img className='w-44 h-44' src={user.photoURL} alt="user photo" alt="userProfile" /></figure> */}
             </div>
             <div class="card w-96 bg-gray-200 shadow-xl">
                 <div class="card-body">
@@ -21,7 +20,7 @@ const Profile = () => {
                     <h2>{user.email}</h2>
                     
                     <div class="card-actions justify-start">
-                        <button class="btn"> <Link to="/dashboard/profileEdit">Edit profile</Link> </button>
+                        <button class="btn"> <Link to="/profileEdit">Edit profile</Link> </button>
                     </div>
                 </div>
             </div>

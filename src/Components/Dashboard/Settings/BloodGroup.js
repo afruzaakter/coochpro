@@ -62,7 +62,7 @@ const BloodGroup = () => {
        }
 
     return (
-        <div className='flex justify-start ml-28 items-start mt-16 gap-14'>
+        <div className='lg:flex lg:justify-start lg:ml-28 items-start mt-16 lg:gap-20'>
             <div className="card w-96 bg-gray-200 ">
                 <div className="card-body">
                     <h2 className="text-center text-xl font-bold">Blood Group</h2>
@@ -90,8 +90,8 @@ const BloodGroup = () => {
                 </div>
             </div>
 
-            <div className="overflow-x-auto">
-                <table className="table w-full">
+            <div className="overflow-x-auto lg:w-96 ">
+                <table className="table w-full ">
                     {/* <!-- head --> */}
                     <thead>
                         <tr>
@@ -101,7 +101,7 @@ const BloodGroup = () => {
 
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody className=''>
                         {/* <!-- row 1 --> */}
 
                         {
@@ -109,8 +109,8 @@ const BloodGroup = () => {
                                 <tr>
                                     <th>{index + 1}</th>
                                     <td>{bloodgroup.bloodgroup}</td>
-                                    <td className='flex gap-4'>
-                                        <Link to={`/dashboard/bloodgroupEdit/${bloodgroup._id}`}><FaEdit /></Link>
+                                    <td className='flex gap-4 '>
+                                        <Link  to={`/dashboard/bloodgroupEdit/${bloodgroup._id}`}><FaEdit /></Link>
                                         <button onClick={() => handleDelete(bloodgroup._id)}><MdDelete/></button>
                                     </td>
 

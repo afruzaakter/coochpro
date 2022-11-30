@@ -8,8 +8,8 @@ import SignUp from './Components/Auth/SignUp';
 import AllUser from './Components/Dashboard/AllUser';
 import Calendar from './Components/Dashboard/Calendar';
 import Dashboard from './Components/Dashboard/Dashboard';
-import Profile from './Components/Dashboard/Profile';
-import ProfileEdit from './Components/Dashboard/ProfileEdit';
+import Profile from './Components/UserProfile/Profile';
+import ProfileEdit from './Components/UserProfile/ProfileEdit';
 import BloodGroup from './Components/Dashboard/Settings/BloodGroup';
 import BloodGroupEdit from './Components/Dashboard/Settings/BloodGroupEdit';
 import Department from './Components/Dashboard/Settings/Department';
@@ -41,6 +41,8 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<SignUp />} />
         <Route path='/reset' element={<Reset />} />
+        <Route path='/profile' element ={<Profile/>} />     
+         <Route path='/profileEdit' element ={<ProfileEdit/>} />     
         {/* -------- Dashboard Route start ------------- */}
         <Route path='/dashboard' element={
         <RequireAuth>
@@ -70,8 +72,7 @@ function App() {
          <Route path ='designationEdit/:id' element={<DesignationEdit/>}/>
   
          <Route path='allUser' element ={<AllUser/>} />     
-         <Route path='profile' element ={<Profile/>} />     
-         <Route path='profileEdit' element ={<ProfileEdit/>} />     
+         
   
 
          </Route>

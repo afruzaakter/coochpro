@@ -32,7 +32,7 @@ const BloodGroupEdit = () => {
         navigate('/dashboard/bloodgroup')
     }
     return (
-        <div className='flex justify-start ml-28 items-start mt-16 gap-14'>
+        <div className='flex justify-start ml-28 items-start mt-16 '>
             <div className="card w-96 bg-gray-200 ">
                 <div className="card-body">
                     <h2 className="text-center text-xl font-bold">Update Blood Group</h2>

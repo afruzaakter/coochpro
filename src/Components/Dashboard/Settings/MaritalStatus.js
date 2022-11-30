@@ -62,7 +62,7 @@ const MaritalStatus = () => {
  
     }
     return (
-        <div className='flex justify-start ml-28 items-start mt-16 gap-14'>
+        <div className='lg:flex lg:justify-start lg:ml-28 lg:items-start mt-16 lg:gap-14'>
         <div className="card w-96 bg-gray-200 ">
             <div className="card-body">
                 <h2 className="text-center text-xl font-bold">Marital Status</h2>
@@ -90,7 +90,7 @@ const MaritalStatus = () => {
             </div>
         </div>
 
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto lg:w-96">
                 <table className="table w-full">
                     {/* <!-- head --> */}
                     <thead>

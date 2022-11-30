@@ -33,7 +33,7 @@ const MaritalEdit = () => {
         navigate('/dashboard/maritalStatus')
     }
     return (
-        <div className='flex justify-start ml-28 items-start mt-16 gap-14'>
+        <div className='lg:flex lg:justify-start lg:ml-28 lg:items-start mt-16 lg:gap-14'>
             <div className="card w-96 bg-gray-200 ">
                 <div className="card-body">
                     <h2 className="text-center text-xl font-bold">Update Marital Status</h2>

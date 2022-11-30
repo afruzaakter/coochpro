@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { useQuery } from 'react-query';
-import Loading from '../../Shared/Loading';
+// import { useQuery } from 'react-query';
+// import Loading from '../../Shared/Loading';
 import UserRow from './UserRow';
 
 const AllUser = () => {
@@ -17,9 +17,10 @@ const AllUser = () => {
 
     }, []);
     return (
-        <div>
-            <h1>All user: {users.length} </h1>
-            <div class="overflow-x-auto">
+        <div className='ml-5'>
+            <h1 className='text-2xl  lg:ml-80 font-bold mb-10'>All user</h1>
+         <div className='lg:w-3/4 flex justify-center'>
+         <div class="overflow-x-auto">
                 <table class="table w-full">
                     {/* <!-- head --> */}
                     <thead>
@@ -41,6 +42,7 @@ const AllUser = () => {
                     </tbody>
                 </table>
             </div>
+         </div>
         </div>
     );
 };
