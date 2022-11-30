@@ -10,7 +10,7 @@ const Profile = () => {
          <div class=" bg-base-100  lg:flex justify-center items-center gap-16">
            <div> 
            <h1 className='text-2xl  font-bold ml-3'>My Profile</h1>
-            {/* <figure><img className='w-44 h-44' src={user.photoURL} alt="user photo" alt="userProfile" /></figure> */}
+            <figure><img className='w-44 h-44' src={user.photoURL} alt="user photo" alt="userProfile" /></figure>
             </div>
             <div class="card w-96 bg-gray-200 shadow-xl">
                 <div class="card-body">
