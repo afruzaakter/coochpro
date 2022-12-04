@@ -7,6 +7,7 @@ import { toast, ToastContainer } from 'react-toastify';
 
 const District = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
+    const [updated, setUpdated] = useState(false)
     const onSubmit = async (data) => {
         const url = 'http://localhost:5000/district'
         fetch(url, {
@@ -22,6 +23,7 @@ const District = () => {
 
                 if (data.insertedId) {
                     toast("Successfully Data Add");
+                    setUpdated(!updated);
                     reset()
                 }
                 else {
@@ -39,7 +41,7 @@ const District = () => {
             .then(res => res.json())
             .then(data => setDistricts(data));
 
-    }, []);
+    }, [updated]);
 
     // -----------------------Delete method ----------------------
 

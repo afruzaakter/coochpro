@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 
 const Location = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
+    const [updated, setUpdated] = useState(false)
     const onSubmit = async (data) => {
         const url = 'http://localhost:5000/location'
         fetch(url, {
@@ -22,6 +23,7 @@ const Location = () => {
 
                 if (data.insertedId) {
                     toast("Successfully Data Add");
+                    setUpdated(!updated);
                     reset()
                 }
                 else {
@@ -39,7 +41,7 @@ const Location = () => {
             .then(res => res.json())
             .then(data => setLocations(data));
 
-    }, []);
+    }, [updated]);
 
     // -----------------------Delete method ----------------------
 

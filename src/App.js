@@ -31,6 +31,10 @@ import ReligionEdit from './Components/Dashboard/Settings/ReligionEdit';
 import Settings from './Components/Dashboard/Settings/Settings';
 import Navbar from './Shared/Navbar';
 import NotFound from './Shared/NotFound';
+import LeadsEntry from './Components/Dashboard/CRM/LeadsEntry';
+import FollowUp from './Components/Dashboard/CRM/FollowUp';
+import Proposal from './Components/Dashboard/CRM/Proposal';
+import LeadEntryEdit from './Components/Dashboard/CRM/LeadEntryEdit';
 
 function App() {
   return (
@@ -72,6 +76,10 @@ function App() {
          <Route path ='designationEdit/:id' element={<DesignationEdit/>}/>
   
          <Route path='allUser' element ={<AllUser/>} />     
+         <Route path='leadsEntry' element ={<LeadsEntry/>} />  
+         <Route path ='leadEntryEdit/:id' element={<LeadEntryEdit/>}/>   
+         <Route path='followUp' element ={<FollowUp/>} />     
+         <Route path='proposal' element ={<Proposal/>} />     
          
   
 

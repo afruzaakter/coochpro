@@ -1,12 +1,11 @@
 import React from 'react';
 
-const SidebarItem = () => {
+const Proposal = () => {
     return (
         <div>
-            
-
+            Proposal page
         </div>
     );
 };
 
-export default SidebarItem;
+export default Proposal;

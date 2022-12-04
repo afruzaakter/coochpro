@@ -7,6 +7,7 @@ import { MdDelete } from 'react-icons/md';
 
 const MaritalStatus = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
+    const [updated, setUpdated] = useState(false)
       // -----------------post method  ----------------------
       const onSubmit = async (data)=>{ 
         const url = 'http://localhost:5000/marital'
@@ -22,6 +23,7 @@ const MaritalStatus = () => {
 
                 if (data.insertedId) {
                     toast("Successfully Data Add");
+                    setUpdated(!updated);
                     reset()
                 }
                 else {
@@ -37,7 +39,7 @@ const MaritalStatus = () => {
              .then(res => res.json())
              .then(data => setMaritals(data));
  
-     }, []);
+     }, [updated]);
  
      // -----------------------Delete method ----------------------
     

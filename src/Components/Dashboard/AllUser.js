@@ -20,7 +20,7 @@ const AllUser = () => {
         <div className='ml-5'>
             <h1 className='text-2xl  lg:ml-80 font-bold mb-10'>All user</h1>
          <div className='lg:w-3/4 flex justify-center'>
-         <div class="overflow-x-auto">
+         <div class="overflow-x-auto ">
                 <table class="table w-full">
                     {/* <!-- head --> */}
                     <thead>

@@ -10,7 +10,8 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Gender = () => {
 
-    const { register, formState: { errors }, handleSubmit } = useForm();
+    const { register, formState: { errors }, handleSubmit, reset } = useForm();
+    const [updated, setUpdated] = useState(false)
 
     // -----------------post method  ----------------------
     const onSubmit = async (data) => {
@@ -27,6 +28,9 @@ const Gender = () => {
                 return toast(data.error)
             }
             toast("Successfully Add Data");
+            setUpdated(!updated);
+            reset()
+
         }
         catch (error) {
             console.log(error)
@@ -40,7 +44,7 @@ const Gender = () => {
             .then(res => res.json())
             .then(data => setGenders(data));
 
-    }, []);
+    }, [updated]);
 
     // -----------------------Delete method ----------------------
    

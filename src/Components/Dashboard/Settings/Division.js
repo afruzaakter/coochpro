@@ -7,6 +7,7 @@ import { MdDelete } from 'react-icons/md';
 
 const Division = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
+    const [updated, setUpdated] = useState(false)
     const onSubmit = async (data) => {
         const url = 'http://localhost:5000/division'
         fetch(url, {
@@ -22,6 +23,7 @@ const Division = () => {
 
                 if (data.insertedId) {
                     toast("Successfully Data Add");
+                    setUpdated(!updated);
                     reset()
                 }
                 else {
@@ -39,7 +41,7 @@ const Division = () => {
             .then(res => res.json())
             .then(data => setDivisions(data));
 
-    }, []);
+    }, [updated]);
 
     // -----------------------Delete method ----------------------
 
@@ -107,7 +109,7 @@ const Division = () => {
 
                         {
                             divisions?.map((division, index) =>
-                                <tr>
+                                <tr key={division._id}>
                                     <th>{index + 1}</th>
                                     <td>{division.division}</td>
                                     <td className='flex gap-4'>

@@ -7,6 +7,7 @@ import { MdDelete } from 'react-icons/md';
 
 const Department = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
+    const [updated, setUpdated] = useState(false)
     const onSubmit = async (data) => {
         const url = 'http://localhost:5000/department'
         fetch(url, {
@@ -22,6 +23,7 @@ const Department = () => {
 
                 if (data.insertedId) {
                     toast("Successfully Data Add");
+                    setUpdated(!updated)
                     reset()
                 }
                 else {
@@ -39,7 +41,7 @@ const Department = () => {
             .then(res => res.json())
             .then(data => setDepartments(data));
 
-    }, []);
+    }, [updated]);
 
     // -----------------------Delete method ----------------------
 

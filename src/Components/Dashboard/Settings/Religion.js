@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 
 const Religion = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
+    const [updated, setUpdated] = useState(false);
     const onSubmit = async (data)=>{ 
         const url = 'http://localhost:5000/religion'
         fetch(url, {
@@ -23,6 +24,7 @@ const Religion = () => {
 
                 if (data.insertedId) {
                     toast("Successfully Data Add");
+                    setUpdated(!updated)
                     reset()
                 }
                 else {
@@ -40,7 +42,7 @@ const Religion = () => {
             .then(res => res.json())
             .then(data => setReligions(data));
 
-    }, []);
+    }, [updated]);
 
        // -----------------------Delete method ----------------------
 

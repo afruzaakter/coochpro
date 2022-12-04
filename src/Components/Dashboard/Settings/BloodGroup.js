@@ -7,6 +7,7 @@ import { MdDelete } from 'react-icons/md';
 
 const BloodGroup = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
+    const [updated, setUpdated] = useState(false)
     const onSubmit = async (data) => {
         const url = 'http://localhost:5000/bloodgroup'
         console.log(url)
@@ -23,6 +24,7 @@ const BloodGroup = () => {
 
                 if (data.insertedId) {
                     toast("Successfully Data Add");
+                    setUpdated(!updated)
                     reset()
                 }
                 else {
@@ -39,7 +41,7 @@ const BloodGroup = () => {
              .then(res => res.json())
              .then(data => setbloodGroups(data));
  
-     }, []);
+     }, [updated]);
 
      // -----------------------Delete method ----------------------  
     const  handleDelete = (id) => {

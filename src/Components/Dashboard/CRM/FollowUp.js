@@ -1,12 +1,11 @@
 import React from 'react';
 
-const SidebarItem = () => {
+const FollowUp = () => {
     return (
         <div>
-            
-
+            Follow Up page
         </div>
     );
 };
 
-export default SidebarItem;
+export default FollowUp;

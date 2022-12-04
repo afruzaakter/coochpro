@@ -5,7 +5,7 @@ import auth from '../../firebase.init';
 import Loading from '../../Shared/Loading';
 import { MdDashboard } from 'react-icons/md';
 // import { MdManageAccounts } from 'react-icons/md';
-import { BsFillCalendarMinusFill } from 'react-icons/bs';
+import { FaChartBar } from 'react-icons/fa';
 import { RiArrowDownSFill } from 'react-icons/ri';
 import { AiOutlineDown } from 'react-icons/ai';
 import { FiSettings } from 'react-icons/fi';
@@ -31,7 +31,7 @@ const Dashboard = () => {
     const [subMenuOpen, setSubMenuOpen] = useState(false);
     const [librarySubMenuOpen, setLibrarySubMenuOpen] = useState(false);
     const [adminSubMenuOpen, setAdminSubMenuOpen] = useState(false);
-    const [cmrSubMenuOpen, setCmrSubMenuOpen] = useState(false);
+    const [crmSubMenuOpen, setCrmSubMenuOpen] = useState(false);
 
     if (loading) {
         return <Loading />
@@ -53,22 +53,8 @@ const Dashboard = () => {
                 <div className="drawer-side ">
                     <label for="my-drawer-2" className="drawer-overlay"></label>
                     <ul className="menu p-4 overflow-y-auto rounded-r-xl   bg-gray-200 text-base-content">
-                        {/* <li className='my-5 mb-2'><NavLink to='/dashboard'> <MdDashboard /> Dashboard</NavLink></li> */}
-
-                        {/* {
-                            admin && <li className='text-primary mb-2 font-bold'><NavLink to='/dashboard/allUser'> <AiOutlineUsergroupAdd /> All Users</NavLink></li>
-
-                        }                        */}
-
-
-                        {/* { admin && <li className='text-primary font-bold mb-2'><NavLink to='/dashboard/calendar'><BsFillCalendarMinusFill /> Calendar </NavLink></li>} */}
-
-
-
-
-                        {/* <div className='flex'> */}
                         <div>
-                            <div className={`bg-info h-screen p-5 rounded-md duration-300 text-ternary  relative ${open ? "w-69" : "w-20"}`}>
+                            <div className={`bg-info  h-full p-5 rounded-md duration-300 text-ternary  relative ${open ? "w-69" : "w-20"}`}>
                                 <BsArrowRightShort className={`bg-white text-info  absolute -right-3 top-9 border border-info cursor-pointer text-3xl rounded-full ${!open && "rotate-180"} `} onClick={() => setOpen(!open)} />
 
                                 <div className={`flex items-center mt-14 ml-2 rounded-md bg-gray-300 py-2 px-4 ${!open ? "px-2.5" : "px-4"} `}>
@@ -76,6 +62,62 @@ const Dashboard = () => {
                                     <input type='text' placeholder='Search' className={`text-base bg-transparent w-full text-white focus:outline-none ${!open && "hidden"} `} ></input>
                                 </div>
                                 <ul className='pt-2'>
+
+
+                                    {/* ***************************** Dashboard menu CMR Start *********************************** */}
+                                    <li onClick={()=>setCrmSubMenuOpen(!crmSubMenuOpen)} className={`text-gray-300 text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-600 border-b   rounded-md mt-4 ${!open && "mr-0"} `}>
+                                        <div className='mr-4 w-full hover:bg-gray-50'>
+                                            <span className={`text-xl  hover:text-gray-700 block  ${!open ? "text-xl" : "ml-2"} `}><MdAdminPanelSettings /></span>
+                                            <span className={`text-base font-medium flex-1 ${!open && "hidden"} `}>CRM</span>
+                                            <span className={`text-base font-medium flex-1 ${!open && "hidden"} `}><RiArrowDownSFill/></span>
+                                        </div>
+                                    </li>
+                                    {
+                                        crmSubMenuOpen && <ul>
+                                           
+                                           <li className='text-gray-300 ml-8 text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-600    rounded-md mt-2  '><Link to='/dashboard/leadsEntry' className='w-full hover:bg-gray-300 '><MdKeyboardArrowRight />Leads Entry </Link></li>
+
+                                           <li className='text-gray-300 ml-8 text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-600    rounded-md mt-2  '><Link to='/dashboard/followUp' className='w-full hover:bg-gray-300 '><MdKeyboardArrowRight />Follow Up </Link></li>
+
+                                           <li className='text-gray-300 ml-8 text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-600    rounded-md mt-2  '><Link to='/dashboard/proposal' className='w-full hover:bg-gray-300 '><MdKeyboardArrowRight />Proposal</Link></li>
+                                        </ul>
+                                    }
+
+                                    {/* ***********************Leads Entry ******************** */}
+
+
+                                    {/* ***************************** Dashboard menu CMR End *********************************** */}
+                                    {/* ***************************** Dashboard menu Accounts Start *********************************** */}
+                                    <li className={`text-gray-300 text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-600 border-b   rounded-md mt-4 ${!open && "mr-0"} `}>
+                                        <div className='mr-4 w-full hover:bg-gray-50'>
+                                            <span className={`text-xl  hover:text-gray-700 block  ${!open ? "text-xl" : "ml-2"} `}><MdSwitchAccount /></span>
+                                            <span className={`text-base font-medium flex-1 ${!open && "hidden"} `}>Accounts</span>
+                                            <span className={`text-base font-medium flex-1 ${!open && "hidden"} `}><RiArrowDownSFill /></span>
+                                        </div>
+                                    </li>
+
+                                    {/* ***************************** Dashboard menu Accouts End *********************************** */}
+                                    {/* ***************************** Dashboard menu Inventory Start *********************************** */}
+                                    <li className={`text-gray-300 text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-600 border-b   rounded-md mt-4 ${!open && "mr-0"} `}>
+                                        <div className='mr-4 w-full hover:bg-gray-50'>
+                                            <span className={`text-xl  hover:text-gray-700 block  ${!open ? "text-xl" : "ml-2"} `}><MdOutlineInventory /></span>
+                                            <span className={`text-base font-medium flex-1 ${!open && "hidden"} `}>Inventory</span>
+                                            <span className={`text-base font-medium flex-1 ${!open && "hidden"} `}><RiArrowDownSFill  /></span>
+                                        </div>
+                                    </li>
+
+                                    {/* ***************************** Dashboard menu Inventory End *********************************** */}
+                                    {/* ***************************** Dashboard menu Sales Start *********************************** */}
+                                    <li className={`text-gray-300 text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-600 border-b   rounded-md mt-4 ${!open && "mr-0"} `}>
+                                        <div className='mr-4'>
+                                            <span className={`text-xl  hover:text-gray-700 block  ${!open ? "text-xl" : "ml-2"} `}><FaChartBar className='text-gray-300' /></span>
+                                            <span className={`text-base font-medium flex-1 ${!open && "hidden"} `}>Sales</span>
+                                            <span className={`text-base font-medium flex-1 ${!open && "hidden"} `}><RiArrowDownSFill/></span>
+                                        </div>
+                                    </li>
+
+                                    {/* ***************************** Dashboard menu Sales End *********************************** */}
+
 
                                     {/* ***************************** Dashboard menu Setting ******************************************** */}
                                     <li onClick={() => setSubMenuOpen(!subMenuOpen)} className={`text-gray-300 text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-400 border-b   rounded-md mt-2 ${!open && "mr-0"} `}>
@@ -124,20 +166,28 @@ const Dashboard = () => {
                                                 {/* ***************** Dashboard Setting + SubMenu > Library all end *********************** */}
                                                 {/* *****************Dashboard Setting + SubMenu > Admin >user start ******************** */}
 
-                                                {
-                                                    admin && <li onClick={() => setAdminSubMenuOpen(!adminSubMenuOpen)} className={`text-gray-300 ml-5 text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-600 border-b   rounded-md mt-2 ${!open && "mr-0"} `}>
-                                                        <div className='mr-4 w-full hover:bg-gray-50'>
-                                                            <span className={`text-xl  hover:text-gray-900 block  ${!open ? "text-xl" : "ml-2"} `}><MdLibraryAddCheck /></span>
-                                                            <span className={`text-base font-medium flex-1 ${!open && "hidden"} `}>Admin</span>
-                                                            <span className={`text-base font-medium flex-1 ${!open && "hidden"} `}><RiArrowDownSFill /></span>
-                                                        </div>
-                                                    </li>
-                                                }
+
+                                                <li onClick={() => setAdminSubMenuOpen(!adminSubMenuOpen)} className={`text-gray-300 ml-5 text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-600 border-b   rounded-md mt-2 ${!open && "mr-0"} `}>
+                                                    <div className='mr-4 w-full hover:bg-gray-50'>
+                                                        <span className={`text-xl  hover:text-gray-900 block  ${!open ? "text-xl" : "ml-2"} `}><MdLibraryAddCheck /></span>
+                                                        <span className={`text-base font-medium flex-1 ${!open && "hidden"} `}>Admin</span>
+                                                        <span className={`text-base font-medium flex-1 ${!open && "hidden"} `}><RiArrowDownSFill /></span>
+                                                    </div>
+                                                </li>
+
 
                                                 {
                                                     adminSubMenuOpen && (
 
-                                                        <li className='text-gray-300 ml-14 text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-600  rounded-md mt-2 '><Link className='w-full hover:bg-gray-50' to='/dashboard/allUser'> <AiOutlineUsergroupAdd />Users</Link></li>
+                                                       <ul>
+                                                       {
+                                                        admin &&   <li className='text-gray-300 ml-14 text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-600  rounded-md mt-2 '><Link className='w-full hover:bg-gray-50' to='/dashboard/allUser'> <AiOutlineUsergroupAdd />Role Manage</Link></li>
+
+                                                       }
+
+                                                         <li className='text-gray-300 ml-14 text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-600  rounded-md mt-2 '><Link className='w-full hover:bg-gray-50' to='/dashboard/gender'> <AiOutlineUsergroupAdd />User</Link></li>
+
+                                                       </ul>
 
                                                     )
                                                 }
@@ -146,47 +196,6 @@ const Dashboard = () => {
                                             </ul>
                                         )
                                     }
-
-                                    {/* ***************************** Dashboard menu CMR Start *********************************** */}
-                                    <li className={`text-gray-300 text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-600 border-b   rounded-md mt-4 ${!open && "mr-0"} `}>
-                                        <div className='mr-4 w-full hover:bg-gray-50'>
-                                            <span className={`text-xl  hover:text-gray-700 block  ${!open ? "text-xl" : "ml-2"} `}><MdAdminPanelSettings /></span>
-                                            <span className={`text-base font-medium flex-1 ${!open && "hidden"} `}>CRM</span>
-                                            <span className={`text-base font-medium flex-1 ${!open && "hidden"} `}><RiArrowDownSFill onClick={() => setCmrSubMenuOpen(!cmrSubMenuOpen)} /></span>
-                                        </div>
-                                    </li>
-
-                                    {/* ***************************** Dashboard menu CMR End *********************************** */}
-                                    {/* ***************************** Dashboard menu Accounts Start *********************************** */}
-                                    <li className={`text-gray-300 text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-600 border-b   rounded-md mt-4 ${!open && "mr-0"} `}>
-                                        <div className='mr-4 w-full hover:bg-gray-50'>
-                                            <span className={`text-xl  hover:text-gray-700 block  ${!open ? "text-xl" : "ml-2"} `}><MdSwitchAccount /></span>
-                                            <span className={`text-base font-medium flex-1 ${!open && "hidden"} `}>Accounts</span>
-                                            <span className={`text-base font-medium flex-1 ${!open && "hidden"} `}><RiArrowDownSFill onClick={() => setCmrSubMenuOpen(!cmrSubMenuOpen)} /></span>
-                                        </div>
-                                    </li>
-
-                                    {/* ***************************** Dashboard menu Accouts End *********************************** */}
-                                    {/* ***************************** Dashboard menu Inventory Start *********************************** */}
-                                    <li className={`text-gray-300 text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-600 border-b   rounded-md mt-4 ${!open && "mr-0"} `}>
-                                        <div className='mr-4 w-full hover:bg-gray-50'>
-                                            <span className={`text-xl  hover:text-gray-700 block  ${!open ? "text-xl" : "ml-2"} `}><MdOutlineInventory /></span>
-                                            <span className={`text-base font-medium flex-1 ${!open && "hidden"} `}>Inventory</span>
-                                            <span className={`text-base font-medium flex-1 ${!open && "hidden"} `}><RiArrowDownSFill onClick={() => setCmrSubMenuOpen(!cmrSubMenuOpen)} /></span>
-                                        </div>
-                                    </li>
-
-                                    {/* ***************************** Dashboard menu Inventory End *********************************** */}
-                                    {/* ***************************** Dashboard menu Sales Start *********************************** */}
-                                    <li className={`text-gray-300 text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-600 border-b   rounded-md mt-4 ${!open && "mr-0"} `}>
-                                        <div className='mr-4'>
-                                            <span className={`text-xl  hover:text-gray-700 block  ${!open ? "text-xl" : "ml-2"} `}><FcSalesPerformance className='text-gray-300' /></span>
-                                            <span className={`text-base font-medium flex-1 ${!open && "hidden"} `}>Sales</span>
-                                            <span className={`text-base font-medium flex-1 ${!open && "hidden"} `}><RiArrowDownSFill onClick={() => setCmrSubMenuOpen(!cmrSubMenuOpen)} /></span>
-                                        </div>
-                                    </li>
-
-                                    {/* ***************************** Dashboard menu Sales End *********************************** */}
 
 
                                 </ul>
