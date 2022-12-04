@@ -35,6 +35,8 @@ import LeadsEntry from './Components/Dashboard/CRM/LeadsEntry';
 import FollowUp from './Components/Dashboard/CRM/FollowUp';
 import Proposal from './Components/Dashboard/CRM/Proposal';
 import LeadEntryEdit from './Components/Dashboard/CRM/LeadEntryEdit';
+import BusinessType from './Components/Dashboard/Settings/BusinessType';
+import BusinessTypeEdit from './Components/Dashboard/Settings/BusinessTypeEdit';
 
 function App() {
   return (
@@ -74,7 +76,8 @@ function App() {
          <Route path ='departmentEdit/:id' element={<DepartmentEdit/>}/>
          <Route path ='designation' element={<Designation/>}/>
          <Route path ='designationEdit/:id' element={<DesignationEdit/>}/>
-  
+         <Route path ='businessType' element={<BusinessType/>}/>
+         <Route path ='businessTypeEdit/:id' element={<BusinessTypeEdit/>}/> 
          <Route path='allUser' element ={<AllUser/>} />     
          <Route path='leadsEntry' element ={<LeadsEntry/>} />  
          <Route path ='leadEntryEdit/:id' element={<LeadEntryEdit/>}/>   

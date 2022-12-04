@@ -159,6 +159,7 @@ const Dashboard = () => {
                                                             <li className='text-gray-300 ml-14  text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-600  rounded-md mt-2  '><Link className='w-full hover:bg-gray-300 ' to='/dashboard/district'><MdKeyboardArrowRight />District</Link></li>
                                                             <li className='text-gray-300 ml-14  text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-600  rounded-md mt-2  '><Link className='w-full hover:bg-gray-300 ' to='/dashboard/department'><MdKeyboardArrowRight />Department</Link></li>
                                                             <li className='text-gray-300 ml-14  text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-600  rounded-md mt-2  '><Link className='w-full hover:bg-gray-300 ' to='/dashboard/designation'><MdKeyboardArrowRight />Designation</Link></li>
+                                                            <li className='text-gray-300 ml-14  text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-600  rounded-md mt-2  '><Link className='w-full hover:bg-gray-300 ' to='/dashboard/businessType'><MdKeyboardArrowRight />Business Type</Link></li>
                                                         </ul>
                                                     )
                                                 }
