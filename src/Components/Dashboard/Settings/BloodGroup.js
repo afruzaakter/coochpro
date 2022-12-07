@@ -78,7 +78,7 @@ const BloodGroup = () => {
                                 {...register("bloodgroup", {
                                     required: {
                                         value: true,
-                                        message: "❌  Required"
+                                        message: "❌  Please Fillup  Input Field"
                                     }
                                 })}
                             />

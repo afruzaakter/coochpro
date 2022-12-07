@@ -46,7 +46,7 @@ const BusinessTypeEdit = () => {
                                 {...register("business", {
                                     required: {
                                         value: true,
-                                        message: "❌  Required"
+                                        message: "❌  Please Fillup  Input Field"
                                     }
                                 })}
                             />

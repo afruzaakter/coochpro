@@ -59,13 +59,13 @@ const GenderEdit = () => {
                             <input
                                 type="text"
                                 placeholder="Gender"
-                                // setValue={genders.gender}
+                                // value={genders.gender}
                                 // disabled
                                 className="input input-bordered font-bold w-full max-w-xs login-container-input"
                                 {...register("gender", {
                                     required: {
                                         value: true,
-                                        message: "❌  Required"
+                                        message: "❌  Please Fillup  Input Field"
                                     }   
 
                                 })}

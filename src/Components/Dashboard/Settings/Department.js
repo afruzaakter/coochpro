@@ -78,7 +78,7 @@ const Department = () => {
                                 {...register("department", {
                                     required: {
                                         value: true,
-                                        message: "❌  Required"
+                                        message: "❌  Please Fillup  Input Field"
                                     }
                                 })}
                             />
