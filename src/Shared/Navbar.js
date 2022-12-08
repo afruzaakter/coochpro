@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import {  Link, NavLink } from 'react-router-dom';
@@ -118,10 +119,6 @@ const Navbar = () => {
  };
 
  export default Navbar;
-
-
-
-
 
 
 

@@ -9,7 +9,7 @@ import { FaChartBar } from 'react-icons/fa';
 import { RiArrowDownSFill } from 'react-icons/ri';
 import { AiOutlineDown } from 'react-icons/ai';
 import { FiSettings } from 'react-icons/fi';
-import { FcSalesPerformance } from 'react-icons/fc';
+import { FaUsers } from 'react-icons/fa';
 import { MdOutlineInventory } from 'react-icons/md';
 import { MdSwitchAccount } from 'react-icons/md';
 import { MdKeyboardArrowRight } from 'react-icons/md';
@@ -32,6 +32,7 @@ const Dashboard = () => {
     const [librarySubMenuOpen, setLibrarySubMenuOpen] = useState(false);
     const [adminSubMenuOpen, setAdminSubMenuOpen] = useState(false);
     const [crmSubMenuOpen, setCrmSubMenuOpen] = useState(false);
+    const [HrmSubMenuOpen, setHrmSubMenuOpen] = useState(false);
 
     if (loading) {
         return <Loading />
@@ -65,21 +66,21 @@ const Dashboard = () => {
 
 
                                     {/* ***************************** Dashboard menu CMR Start *********************************** */}
-                                    <li onClick={()=>setCrmSubMenuOpen(!crmSubMenuOpen)} className={`text-gray-300 text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-600 border-b   rounded-md mt-4 ${!open && "mr-0"} `}>
+                                    <li onClick={() => setCrmSubMenuOpen(!crmSubMenuOpen)} className={`text-gray-300 text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-600 border-b   rounded-md mt-4 ${!open && "mr-0"} `}>
                                         <div className='mr-4 w-full hover:bg-gray-50'>
                                             <span className={`text-xl  hover:text-gray-700 block  ${!open ? "text-xl" : "ml-2"} `}><MdAdminPanelSettings /></span>
                                             <span className={`text-base font-medium flex-1 ${!open && "hidden"} `}>CRM</span>
-                                            <span className={`text-base font-medium flex-1 ${!open && "hidden"} `}><RiArrowDownSFill/></span>
+                                            <span className={`text-base font-medium flex-1 ${!open && "hidden"} `}><RiArrowDownSFill /></span>
                                         </div>
                                     </li>
                                     {
                                         crmSubMenuOpen && <ul>
-                                           
-                                           <li className='text-gray-300 ml-8 text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-600    rounded-md mt-2  '><Link to='/dashboard/leadsEntry' className='w-full hover:bg-gray-300 '><MdKeyboardArrowRight />Leads Entry </Link></li>
 
-                                           <li className='text-gray-300 ml-8 text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-600    rounded-md mt-2  '><Link to='/dashboard/followUp' className='w-full hover:bg-gray-300 '><MdKeyboardArrowRight />Follow Up </Link></li>
+                                            <li className='text-gray-300 ml-8 text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-600    rounded-md mt-2  '><Link to='/dashboard/leadsEntry' className='w-full hover:bg-gray-300 '><MdKeyboardArrowRight />Leads Entry </Link></li>
 
-                                           <li className='text-gray-300 ml-8 text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-600    rounded-md mt-2  '><Link to='/dashboard/proposal' className='w-full hover:bg-gray-300 '><MdKeyboardArrowRight />Proposal</Link></li>
+                                            <li className='text-gray-300 ml-8 text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-600    rounded-md mt-2  '><Link to='/dashboard/followUp' className='w-full hover:bg-gray-300 '><MdKeyboardArrowRight />Follow Up </Link></li>
+
+                                            <li className='text-gray-300 ml-8 text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-600    rounded-md mt-2  '><Link to='/dashboard/proposal' className='w-full hover:bg-gray-300 '><MdKeyboardArrowRight />Proposal</Link></li>
                                         </ul>
                                     }
 
@@ -98,11 +99,11 @@ const Dashboard = () => {
 
                                     {/* ***************************** Dashboard menu Accouts End *********************************** */}
                                     {/* ***************************** Dashboard menu Inventory Start *********************************** */}
-                                    <li className={`text-gray-300 text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-600 border-b   rounded-md mt-4 ${!open && "mr-0"} `}>
+                                    <li className={`text-gray-300 text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-800 border-b   rounded-md mt-4 ${!open && "mr-0"} `}>
                                         <div className='mr-4 w-full hover:bg-gray-50'>
                                             <span className={`text-xl  hover:text-gray-700 block  ${!open ? "text-xl" : "ml-2"} `}><MdOutlineInventory /></span>
                                             <span className={`text-base font-medium flex-1 ${!open && "hidden"} `}>Inventory</span>
-                                            <span className={`text-base font-medium flex-1 ${!open && "hidden"} `}><RiArrowDownSFill  /></span>
+                                            <span className={`text-base font-medium flex-1 ${!open && "hidden"} `}><RiArrowDownSFill /></span>
                                         </div>
                                     </li>
 
@@ -110,20 +111,37 @@ const Dashboard = () => {
                                     {/* ***************************** Dashboard menu Sales Start *********************************** */}
                                     <li className={`text-gray-300 text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-600 border-b   rounded-md mt-4 ${!open && "mr-0"} `}>
                                         <div className='mr-4'>
-                                            <span className={`text-xl  hover:text-gray-700 block  ${!open ? "text-xl" : "ml-2"} `}><FaChartBar className='text-gray-300' /></span>
+                                            <span className={`text-xl  hover:text-gray-700 block  ${!open ? "text-xl" : "ml-2"} `}><FaChartBar /></span>
                                             <span className={`text-base font-medium flex-1 ${!open && "hidden"} `}>Sales</span>
-                                            <span className={`text-base font-medium flex-1 ${!open && "hidden"} `}><RiArrowDownSFill/></span>
+                                            <span className={`text-base font-medium flex-1 ${!open && "hidden"} `}><RiArrowDownSFill /></span>
                                         </div>
                                     </li>
 
                                     {/* ***************************** Dashboard menu Sales End *********************************** */}
+                                    {/* ***************************** Dashboard menu HRM Start *********************************** */}
+                                    <li onClick={() => setHrmSubMenuOpen(!HrmSubMenuOpen)} className={`text-gray-300 text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-600 border-b   rounded-md mt-4 ${!open && "mr-0"} `}>
+                                        <div className='mr-4'>
+                                            <span className={`text-xl  hover:text-gray-900 block  ${!open ? "text-xl" : "ml-2"} `}><FaUsers /></span>
+                                            <span className={`text-base font-medium flex-1 ${!open && "hidden"} `}>HRM</span>
+                                            <span className={`text-base font-medium flex-1 ${!open && "hidden"} `}><RiArrowDownSFill /></span>
+                                        </div>
+                                    </li>
+                                    {
+                                        HrmSubMenuOpen && (
+                                            <ul>
+                                                <li className='text-gray-300 ml-8 text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-600    rounded-md mt-2  '><Link to='/dashboard/leadsEntry' className='w-full hover:bg-gray-300 '><MdKeyboardArrowRight />Profile Entry</Link></li>
+                                            </ul>
+                                        )
+                                    }
+
+                                    {/* ***************************** Dashboard menu HRM End *********************************** */}
 
 
                                     {/* ***************************** Dashboard menu Setting ******************************************** */}
-                                    <li onClick={() => setSubMenuOpen(!subMenuOpen)} className={`text-gray-300 text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-400 border-b   rounded-md mt-2 ${!open && "mr-0"} `}>
+                                    <li onClick={() => setSubMenuOpen(!subMenuOpen)} className={`text-gray-300 text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-600 border-b   rounded-md mt-2 ${!open && "mr-0"} `}>
                                         <div className='mr-4 w-full hover:bg-gray-50'>
                                             <span className={`text-xl  hover:text-gray-900 block  ${!open ? "text-xl" : "ml-2"} `}><FiSettings /></span>
-                                            <span className={`text-base font-medium flex-1 ${!open && "hidden"} `}>Setting</span>
+                                            <span className={`text-base font-medium  flex-1  ${!open && "hidden"} `}>Setting</span>
                                             <span className={`text-base font-medium flex-1 ${!open && "hidden"} ${!subMenuOpen && "rotate-50"} `}><RiArrowDownSFill /></span>
                                         </div>
                                     </li>
@@ -180,15 +198,15 @@ const Dashboard = () => {
                                                 {
                                                     adminSubMenuOpen && (
 
-                                                       <ul>
-                                                       {
-                                                        admin &&   <li className='text-gray-300 ml-14 text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-600  rounded-md mt-2 '><Link className='w-full hover:bg-gray-50' to='/dashboard/allUser'> <AiOutlineUsergroupAdd />Role Manage</Link></li>
+                                                        <ul>
+                                                            {
+                                                                admin && <li className='text-gray-300 ml-14 text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-600  rounded-md mt-2 '><Link className='w-full hover:bg-gray-50' to='/dashboard/allUser'> <AiOutlineUsergroupAdd />Role Manage</Link></li>
 
-                                                       }
+                                                            }
 
-                                                         <li className='text-gray-300 ml-14 text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-600  rounded-md mt-2 '><Link className='w-full hover:bg-gray-50' to='/dashboard/gender'> <AiOutlineUsergroupAdd />User</Link></li>
+                                                            <li className='text-gray-300 ml-14 text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-600  rounded-md mt-2 '><Link className='w-full hover:bg-gray-50' to='/dashboard/gender'> <AiOutlineUsergroupAdd />User</Link></li>
 
-                                                       </ul>
+                                                        </ul>
 
                                                     )
                                                 }

@@ -5,7 +5,7 @@ import ContactPerson from './ContactPerson';
 const FollowUp = () => {
     return (
         <div>
-            Follow Up page
+          
             {/* <SidebarItem/> */}
             <ContactPerson/>
         </div>

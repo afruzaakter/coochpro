@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import { AiFillPlusSquare } from 'react-icons/ai';
 
 const ContactPerson = () => {
     const [val, setVal] = useState([]);
@@ -24,7 +25,11 @@ const ContactPerson = () => {
   
     return (
         <>
-         <button className='btn btn-primary' onClick={() => handleAdd()} >Add</button>
+        <span>Contact Person</span>
+         <button className='btn btn-primary' onClick={() => handleAdd()} >
+             {/* <AiFillPlusSquare/>  */}
+             +
+             </button>
          {val.map((data,i) => {
                 return(
                     <div className='ml-28'>
