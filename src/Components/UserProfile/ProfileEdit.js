@@ -26,15 +26,19 @@ const ProfileEdit = () => {
                     </div>
                     <ul className='pt-1'>
 
-                        {/* ***************************** Dashboard menu Setting ******************************************** */}
+                        {/* ***************************** User Profile Setting  Start******************************************** */}
                        
 
 
                         <li className='flex items-center justify-center font-bold gap-2 text-xl mt-5 '>User Name <IoIosArrowForward className='flex items-center justify-center' /> </li>
 
-                        <li className='flex items-center justify-center font-bold gap-2 text-xl mt-5 '>User Name <IoIosArrowForward className='flex items-center justify-center' /> </li>
+                        <li className='flex items-center justify-center font-bold gap-2 text-xl mt-16 '>Change Email<IoIosArrowForward className='flex items-center justify-center' /> </li>
 
-                        {/* ***************************** Dashboard SubMenu Library *************************************** */}
+                        <li className='flex items-center justify-center font-bold gap-2 text-xl mt-20 '>Change Password<IoIosArrowForward className='flex items-center justify-center' /> </li>
+
+                        <li className='flex items-center justify-center font-bold gap-2 text-xl mt-20 '>Add Phone Number<IoIosArrowForward className='flex items-center justify-center' /> </li>
+
+                        {/* ***************************** User Profile Setting  End *************************************** */}
 
 
 
@@ -53,33 +57,45 @@ const ProfileEdit = () => {
 
             <div >
                 <div className='ml-48 text-2xl font-bold border-b border '>Accounts Setting</div>
-
+ 
+             {/* ------------------------Profile setting User Name Add------------------------ */}
                 <div className='flex gap-96  items-center '>
                     <div>
                         <h1 className='mt-14 ml-48 text-xl font-bold'>User Name :</h1>
                         <h1 className=' ml-48'>{user.displayName}</h1>
                     </div>
                     <div>
-                        <button className='btn  mt-10'>Change User Name</button>
+                        <button className='btn bg-gray-400 border-0 text-gray-700 hover:text-white mt-10'>Change User Name</button>
                     </div>
                 </div>
-
+             {/* ------------------------Profile setting Email change------------------------ */}
                 <div className='flex gap-72  items-center '>
                     <div>
                         <h1 className='mt-14 ml-48 text-xl font-bold'>Email :</h1>
                         <h1 className=' ml-48'>{user.email}</h1>
                     </div>
                     <div>
-                        <button className='btn  mt-10'>Change Email</button>
+                        <button className='btn bg-gray-400 border-0 text-gray-700 hover:text-white ml-3  mt-10'>Change Email</button>
                     </div>
                 </div>
-                <div className='flex gap-72  items-center '>
+                {/* ------------------------Profile setting password change------------------------ */}
+                <div className='flex gap-96   items-center '>
                     <div>
                         <h1 className='mt-14 ml-48 text-xl font-bold'>Password :</h1>
                         <h1 className=' ml-48'>{user.password}</h1>
                     </div>
                     <div>
-                        <button className='btn  mt-10'>Change Password</button>
+                        <button className='btn bg-gray-400 border-0 text-gray-700 hover:text-white ml-4  mt-10'>Change Password</button>
+                    </div>
+                </div>
+                {/* ------------------------Profile setting Add Phone Number------------------------ */}
+                <div className='flex gap-80   items-center '>
+                    <div>
+                        <h1 className='mt-14 ml-48 text-xl font-bold'>Phone Number :</h1>
+                        <h1 className=' ml-48'>{user.password}</h1>
+                    </div>
+                    <div>
+                        <button className='btn bg-gray-400 border-0 text-gray-700 hover:text-white ml-5 mt-10'>Add Phone Number</button>
                     </div>
                 </div>
             </div>
