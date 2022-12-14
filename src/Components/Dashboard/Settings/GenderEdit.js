@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form';
 
 const GenderEdit = () => {
     const { id } = useParams();
-    const { register, formState: { errors }, handleSubmit, setValue, reset } = useForm();
+    const { register, formState: { errors }, handleSubmit, defaultValues, reset } = useForm();
     const navigate = useNavigate();
     const [genders,setGenders] = useState([])
 
@@ -59,7 +59,9 @@ const GenderEdit = () => {
                             <input
                                 type="text"
                                 placeholder="Gender"
-                                // value={genders.gender}
+                                defaultValues={genders.gender}
+                                // setValue={genders.gender}
+                                name="gender"
                                 // disabled
                                 className="input input-bordered font-bold w-full max-w-xs login-container-input"
                                 {...register("gender", {

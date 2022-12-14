@@ -12,6 +12,7 @@ const Gender = () => {
 
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const [updated, setUpdated] = useState(false)
+    const [genderUpdate, setGenderUpdate] = useState(null)
 
     // -----------------post method  ----------------------
     const onSubmit = async (data) => {
@@ -123,7 +124,7 @@ const Gender = () => {
                                        <FaEdit />
                                     </td> */}
                                     <td className='flex gap-4'>
-                                        <Link to={`/dashboard/genderEdit/${gender._id}`}><FaEdit /></Link>
+                                        <Link  to={`/dashboard/genderEdit/${gender._id}`}><FaEdit /></Link>
                                         <button onClick={() => handleDelete(gender._id)}><MdDelete/></button>
                                     </td>
 
