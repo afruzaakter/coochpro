@@ -1,4 +1,6 @@
 import React from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
@@ -9,6 +11,17 @@ const MaritalEdit = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const navigate = useNavigate()
     
+    const [maritals,setMaritals] = useState([])
+
+    // -----------------Update data show method --------------
+   useEffect(()=>{
+    const url = `http://localhost:5000/marital/${id}`
+    fetch(url)
+    .then(res=>res.json())
+    .then(data=>setMaritals(data))
+
+   }, [])
+
     const onSubmit = (data) => {
         const marital = {
             marital: data.marital
@@ -27,7 +40,7 @@ const MaritalEdit = () => {
             .then(res => res.json())
             .then(data => {
                 console.log('success', data);
-                toast('Users Update Successfully !!!');
+                toast.success('Users Update Successfully !!!');
                 reset();
             })
         navigate('/dashboard/maritalStatus')
@@ -42,7 +55,7 @@ const MaritalEdit = () => {
                         <div className="form-control w-full max-w-xs">
                             <input
                                 type="text"
-                                placeholder="Marital Status"
+                                Value = {maritals.marital}
                                 className="input input-bordered font-bold w-full max-w-xs login-container-input"
                                 {...register("marital", {
                                     required: {

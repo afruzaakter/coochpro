@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
@@ -7,6 +7,19 @@ const DivisionEdit = () => {
     const { id } = useParams();
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const navigate = useNavigate()
+    const [divisions,setDivisions] = useState([])
+
+    // -----------------Update data show method --------------
+   useEffect(()=>{
+    const url = `http://localhost:5000/division/${id}`
+    fetch(url)
+    .then(res=>res.json())
+    .then(data=>setDivisions(data))
+
+   }, [])
+
+// ------------------update data method ---------------
+
     const onSubmit = (data) => {
         const division = {
             division: data.division
@@ -25,7 +38,7 @@ const DivisionEdit = () => {
             .then(res => res.json())
             .then(data => {
                 console.log('success', data);
-                toast('Users Update Successfully !!!');
+                toast.success('Data Update Successfully !!!');
                 reset();
             })
         navigate('/dashboard/division')
@@ -40,7 +53,7 @@ const DivisionEdit = () => {
                         <div className="form-control w-full max-w-xs">
                             <input
                                 type="text"
-                                placeholder="Division"
+                                Value ={divisions.division}
                                 className="input input-bordered font-bold w-full max-w-xs login-container-input"
                                 {...register("division", {
                                     required: {

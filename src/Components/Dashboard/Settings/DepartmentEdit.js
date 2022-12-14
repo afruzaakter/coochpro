@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
@@ -7,7 +7,19 @@ const DepartmentEdit = () => {
     
    const { id } = useParams();
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const [departments,setDepartments] = useState([])
+
+    // -----------------Update data show method --------------
+   useEffect(()=>{
+    const url = `http://localhost:5000/department/${id}`
+    fetch(url)
+    .then(res=>res.json())
+    .then(data=>setDepartments(data))
+
+   }, [])
+
+// ------------------update data method ---------------
     const onSubmit = (data) => {
         const department = {
             department: data.department
@@ -26,7 +38,7 @@ const DepartmentEdit = () => {
             .then(res => res.json())
             .then(data => {
                 console.log('success', data);
-                toast('Users Update Successfully !!!');
+                toast.success('Data Update Successfully !!!');
                 reset();
             })
         navigate('/dashboard/department')
@@ -41,7 +53,7 @@ const DepartmentEdit = () => {
                         <div className="form-control w-full max-w-xs">
                             <input
                                 type="text"
-                                placeholder="Department"
+                                Value ={departments.department}
                                 className="input input-bordered font-bold w-full max-w-xs login-container-input"
                                 {...register("department", {
                                     required: {

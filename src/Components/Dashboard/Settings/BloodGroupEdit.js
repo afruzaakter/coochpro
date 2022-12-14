@@ -1,4 +1,6 @@
 import React from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
@@ -7,7 +9,18 @@ const BloodGroupEdit = () => {
     const { id } = useParams();
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const navigate = useNavigate()
-    
+    const [bloodGroups,setBloodGroups] = useState([])
+
+    // -------------------- Update show data method ----------------
+    useEffect(()=>{
+     const url = `http://localhost:5000/bloodgroup/${id}`
+     fetch(url)
+     .then(res=>res.json())
+     .then(data=>setBloodGroups(data))
+ 
+    }, [])
+
+    // -------------Update Data ---------------------  
     const onSubmit = (data) => {
         const bloodgroup = {
             bloodgroup: data.bloodgroup
@@ -26,7 +39,7 @@ const BloodGroupEdit = () => {
             .then(res => res.json())
             .then(data => {
                 console.log('success', data);
-                toast('Users Update Successfully !!!');
+                toast.success('Data Update Successfully !!!');
                 reset();
             })
         navigate('/dashboard/bloodgroup')
@@ -41,7 +54,7 @@ const BloodGroupEdit = () => {
                         <div className="form-control w-full max-w-xs">
                             <input
                                 type="text"
-                                placeholder="Blood Group"
+                                Value = {bloodGroups.bloodgroup}
                                 className="input input-bordered font-bold w-full max-w-xs login-container-input"
                                 {...register("bloodgroup", {
                                     required: {

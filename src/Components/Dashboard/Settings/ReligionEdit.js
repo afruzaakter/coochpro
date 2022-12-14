@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
@@ -7,6 +7,18 @@ const ReligionEdit = () => {
     const { id } = useParams();
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const navigate = useNavigate()
+    const [religions,setReligions] = useState([])
+
+    // -------------------- Update show data method ----------------
+    useEffect(()=>{
+     const url = `http://localhost:5000/religion/${id}`
+     fetch(url)
+     .then(res=>res.json())
+     .then(data=>setReligions(data))
+ 
+    }, [])
+
+    // -------------Update Data ---------------------
     const onSubmit = (data) => {
         const religion = {
             religion: data.religion
@@ -40,7 +52,7 @@ const ReligionEdit = () => {
                         <div className="form-control w-full max-w-xs">
                             <input
                                 type="text"
-                                placeholder="Religion"
+                                Value={religions.religion}
                                 className="input input-bordered font-bold w-full max-w-xs login-container-input"
                                 {...register("religion", {
                                     required: {

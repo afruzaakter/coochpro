@@ -1,4 +1,6 @@
 import React from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
@@ -7,6 +9,20 @@ const LocationEdit = () => {
     const { id } = useParams();
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const navigate = useNavigate()
+    const [locations,setLocations] = useState([])
+
+    // -----------------Update data show method --------------
+   useEffect(()=>{
+    const url = `http://localhost:5000/location/${id}`
+    fetch(url)
+    .then(res=>res.json())
+    .then(data=>setLocations(data))
+
+   }, [])
+
+  
+
+// ------------------update data method ---------------
     const onSubmit = (data) => {
         const location = {
             location: data.location
@@ -25,7 +41,7 @@ const LocationEdit = () => {
             .then(res => res.json())
             .then(data => {
                 console.log('success', data);
-                toast('Users Update Successfully !!!');
+                toast.success('Data Update Successfully !!!');
                 reset();
             })
         navigate('/dashboard/location')
@@ -40,7 +56,7 @@ const LocationEdit = () => {
                         <div className="form-control w-full max-w-xs">
                             <input
                                 type="text"
-                                placeholder="Location"
+                                Value = {locations.location}
                                 className="input input-bordered font-bold w-full max-w-xs login-container-input"
                                 {...register("location", {
                                     required: {

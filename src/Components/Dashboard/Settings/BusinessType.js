@@ -24,7 +24,7 @@ const BusinessType = () => {
             .then((data) => {
 
                 if (data.insertedId) {
-                    toast("Successfully Data Add");
+                    toast.success("Successfully Data Add");
                     setUpdated(!updated)
                     reset()
                 }

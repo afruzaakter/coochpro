@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
@@ -7,7 +7,19 @@ const BusinessTypeEdit = () => {
         
    const { id } = useParams();
    const { register, formState: { errors }, handleSubmit, reset } = useForm();
-   const navigate = useNavigate()
+   const navigate = useNavigate();
+   const [businessed,setBusinessed] = useState([])
+
+   // -----------------Update data show method --------------
+  useEffect(()=>{
+   const url = `http://localhost:5000/business/${id}`
+   fetch(url)
+   .then(res=>res.json())
+   .then(data=>setBusinessed(data))
+
+  }, [])
+
+// ------------------update data method ---------------
    const onSubmit = (data) => {
        const business = {
            business: data.business
@@ -26,7 +38,7 @@ const BusinessTypeEdit = () => {
            .then(res => res.json())
            .then(data => {
                console.log('success', data);
-               toast('Users Update Successfully !!!');
+               toast.success('Data Update Successfully !!!');
                reset();
            })
        navigate('/dashboard/businessType')
@@ -41,7 +53,7 @@ const BusinessTypeEdit = () => {
                         <div className="form-control w-full max-w-xs">
                             <input
                                 type="text"
-                                placeholder="business"
+                                Value={businessed.business}
                                 className="input input-bordered font-bold w-full max-w-xs login-container-input"
                                 {...register("business", {
                                     required: {

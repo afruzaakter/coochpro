@@ -28,7 +28,7 @@ const Gender = () => {
             if (!data.success) {
                 return toast(data.error)
             }
-            toast("Successfully Add Data");
+            toast.success("Successfully Add Data !!!");
             setUpdated(!updated);
             reset()
 

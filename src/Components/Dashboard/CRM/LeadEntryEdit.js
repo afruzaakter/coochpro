@@ -10,6 +10,7 @@ const LeadEntryEdit = () => {
     const {id} = useParams()
     const [leads, setLeads] = useState([]);
 
+
       // ---------------Contact person info start ------------------
       const [value, setValue] = useState([]);
       const handleAdd = () => {
@@ -109,7 +110,7 @@ const LeadEntryEdit = () => {
                                     <label>Company Name</label>
                                     <input
                                         type="text"
-
+                                        Value={leads.companyName}
                                         className="input font-bold w-96  focus:outline-0 rounded-sm border-gray-400 mt-1  w-full focus:border-blue-500  login-container-input"
                                         {...register("companyName", {
                                             required: {
@@ -128,7 +129,7 @@ const LeadEntryEdit = () => {
                                     <label>Company Short Name</label>
                                     <input
                                         type="text"
-
+                                        Value={leads.companyShortName}
                                         className="input font-bold  focus:outline-0 w-96 rounded-sm border-gray-400 mt-1  w-full focus:border-blue-500  login-container-input"
                                         {...register("companyShortName", {
                                             required: {
@@ -145,7 +146,9 @@ const LeadEntryEdit = () => {
                                 {/* --------------------------- Input field Type of Business ---------------- */}
                                 <div className="form-control ">
                                     <label>Type of Business</label>
-                                    <select {...register("business")} className="input font-bold w-96 focus:outline-0 rounded-sm  border-gray-400 mt-1  w-full focus:border-blue-500  login-container-input ">
+                                    <select {...register("business")}
+                                    Value={leads.business}
+                                    className="input font-bold w-96 focus:outline-0 rounded-sm  border-gray-400 mt-1  w-full focus:border-blue-500  login-container-input ">
                                         {
                                             businessed.map((business) => <option>{business.business}</option>)
                                         }
@@ -159,7 +162,7 @@ const LeadEntryEdit = () => {
                                 {/* --------------------------- Input field Location ---------------- */}
                                 <div className="form-control  ">
                                     <label>Location</label>
-                                    <select {...register("location")} className="input font-bold w-96  focus:outline-0 rounded-sm  border-gray-400 mt-1  w-full focus:border-blue-500  login-container-input ">
+                                    <select {...register("location")}  Value={leads.business} className="input font-bold w-96  focus:outline-0 rounded-sm  border-gray-400 mt-1  w-full focus:border-blue-500  login-container-input ">
                                         {
                                             locations.map((location) => <option>{location.location}</option>)
                                         }
@@ -175,7 +178,7 @@ const LeadEntryEdit = () => {
                                     <label>Company Website</label>
                                     <input
                                         type="text"
-
+                                        Value={leads.website}
                                         className="input font-bold w-96 focus:outline-0  rounded-sm border-gray-400 mt-1  w-full focus:border-blue-500  login-container-input"
                                         {...register("website", {
                                             required: {
@@ -195,7 +198,7 @@ const LeadEntryEdit = () => {
                                 <label>Contact Number</label>
                                 <input
                                     type="text"
-
+                                    Value={leads.contactNumber}
                                     className="input font-bold  focus:outline-0 w-96  rounded-sm border-gray-400 mt-1  w-full focus:border-blue-500  login-container-input"
                                     {...register("contactNumber", {
                                         required: {
@@ -228,7 +231,7 @@ const LeadEntryEdit = () => {
                                     <label>Address Line 1</label>
                                     <input
                                         type="text"
-
+                                        Value={leads.address1}
                                         className="input font-bold  focus:outline-0 rounded-sm w-96 border-gray-400 mt-1  w-full focus:border-blue-500  login-container-input"
                                         {...register("address1", {
                                             required: {
@@ -249,7 +252,7 @@ const LeadEntryEdit = () => {
                                     <label>Address Line 2</label>
                                     <input
                                         type="text"
-
+                                        Value={leads.address2}
                                         className="input font-bold  focus:outline-0 rounded-sm w-96 border-gray-400 mt-1  w-full focus:border-blue-500  login-container-input"
                                         {...register("address2", {
                                             required: {
@@ -268,7 +271,7 @@ const LeadEntryEdit = () => {
                                     <label>Postal Code</label>
                                     <input
                                         type="text"
-
+                                        Value={leads.postalcode}
                                         className="input font-bold w-96 focus:outline-0  rounded-sm border-gray-400 mt-1  w-full focus:border-blue-500  login-container-input"
                                         {...register("postalcode", {
                                             required: {
@@ -305,7 +308,7 @@ const LeadEntryEdit = () => {
                                                 <label className='mb-2'>Full Name</label>
                                                 <input
                                                     type="text"
-
+                                                    Value={leads.fullName}
                                                     className="input font-bold  w-60 focus:outline-0  rounded-sm border-gray-400    focus:border-blue-500  login-container-input"
                                                     {...register("fullName", {
                                                         required: {
@@ -322,7 +325,7 @@ const LeadEntryEdit = () => {
                                             {/* ---------------- contact person info Designation -------------------- */}
                                             <div className='form-control '>
                                                 <label className='mb-2'>Designation</label>
-                                                <select {...register("designation")} className="input w   w-52 font-bold  focus:outline-0 rounded-sm  border-gray-400  w-full focus:border-blue-500  login-container-input ">
+                                                <select {...register("designation")}  Value={leads.designation} className="input w   w-52 font-bold  focus:outline-0 rounded-sm  border-gray-400  w-full focus:border-blue-500  login-container-input ">
                                                     {
                                                         designations.map((designation) => <option>{designation.designation}</option>)
                                                     }
@@ -334,7 +337,7 @@ const LeadEntryEdit = () => {
                                             {/* ---------------- contact person info Department -------------------- */}
                                             <div className='form-control '>
                                                 <label className='mb-2'>Department</label>
-                                                <select {...register("department")} className="input   focus:outline-0 rounded-sm font-bold  border-gray-400  w-52 focus:border-blue-500  login-container-input ">
+                                                <select {...register("department")}  Value={leads.department} className="input   focus:outline-0 rounded-sm font-bold  border-gray-400  w-52 focus:border-blue-500  login-container-input ">
                                                     {
                                                         departments.map((department) => <option>{department.department}</option>)
                                                     }
@@ -348,7 +351,7 @@ const LeadEntryEdit = () => {
                                                 <label className='mb-2'>Mobile Number</label>
                                                 <input
                                                     type="text"
-
+                                                    Value={leads.mobileNumber}
                                                     className="input font-bold  focus:outline-0 w-48 rounded-sm border-gray-400    focus:border-blue-500  login-container-input"
                                                     {...register("mobileNumber", {
                                                         required: {
@@ -369,7 +372,7 @@ const LeadEntryEdit = () => {
                                                 <label className='mb-2'>Email</label>
                                                 <input
                                                     type="text"
-
+                                                    Value={leads.email}
                                                     className="input font-bold  focus:outline-0 w-52 rounded-sm border-gray-400    focus:border-blue-500  login-container-input"
                                                     {...register("email", {
                                                         required: {

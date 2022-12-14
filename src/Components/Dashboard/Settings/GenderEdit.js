@@ -6,21 +6,20 @@ import { useForm } from 'react-hook-form';
 
 const GenderEdit = () => {
     const { id } = useParams();
-    const { register, formState: { errors }, handleSubmit, defaultValues, reset } = useForm();
+    const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const navigate = useNavigate();
     const [genders,setGenders] = useState([])
 
+    // -----------------Update data show method --------------
    useEffect(()=>{
-    const url = `http://localhost:5000/gender`
+    const url = `http://localhost:5000/gender/${id}`
     fetch(url)
     .then(res=>res.json())
     .then(data=>setGenders(data))
 
    }, [])
 
-   console.log(genders)
-
-
+// ------------------update data method ---------------
     const onSubmit = (data) => {
        
         const gender = {
@@ -40,8 +39,8 @@ const GenderEdit = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log('success', data);
-                toast('Users Update Successfully !!!');
+                // console.log('success', data);
+                toast.success('Data Update Successfully !!!');
                 reset();
             })
         navigate('/dashboard/gender')
@@ -58,9 +57,7 @@ const GenderEdit = () => {
                         <div className="form-control w-full max-w-xs">
                             <input
                                 type="text"
-                                placeholder="Gender"
-                                defaultValues={genders.gender}
-                                // setValue={genders.gender}
+                                Value={genders.gender}
                                 name="gender"
                                 // disabled
                                 className="input input-bordered font-bold w-full max-w-xs login-container-input"
