@@ -129,7 +129,7 @@ const Dashboard = () => {
                                     {
                                         HrmSubMenuOpen && (
                                             <ul>
-                                                <li className='text-gray-300 ml-8 text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-600    rounded-md mt-2  '><Link to='/dashboard/leadsEntry' className='w-full hover:bg-gray-300 '><MdKeyboardArrowRight />Profile Entry</Link></li>
+                                                <li className='text-gray-300 ml-8 text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-600    rounded-md mt-2  '><Link to='/dashboard/profile' className='w-full hover:bg-gray-300 '><MdKeyboardArrowRight />Profile Entry</Link></li>
                                             </ul>
                                         )
                                     }
@@ -178,6 +178,8 @@ const Dashboard = () => {
                                                             <li className='text-gray-300 ml-14  text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-600  rounded-md mt-2  '><Link className='w-full hover:bg-gray-300 ' to='/dashboard/department'><MdKeyboardArrowRight />Department</Link></li>
                                                             <li className='text-gray-300 ml-14  text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-600  rounded-md mt-2  '><Link className='w-full hover:bg-gray-300 ' to='/dashboard/designation'><MdKeyboardArrowRight />Designation</Link></li>
                                                             <li className='text-gray-300 ml-14  text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-600  rounded-md mt-2  '><Link className='w-full hover:bg-gray-300 ' to='/dashboard/businessType'><MdKeyboardArrowRight />Business Type</Link></li>
+                                                            <li className='text-gray-300 ml-14  text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-600  rounded-md mt-2  '><Link className='w-full hover:bg-gray-300 ' to='/dashboard/opportunity'><MdKeyboardArrowRight />Opportunity</Link></li>
+                                                            <li className='text-gray-300 ml-14  text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-600  rounded-md mt-2  '><Link className='w-full hover:bg-gray-300 ' to='/dashboard/followUpType'><MdKeyboardArrowRight />Follow Up Type</Link></li>
                                                         </ul>
                                                     )
                                                 }

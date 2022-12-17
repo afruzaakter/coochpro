@@ -74,7 +74,7 @@ const BloodGroup = () => {
                             <input
                                 type="text"
                                 placeholder="Blood Group"
-                                className="input input-bordered font-bold w-full max-w-xs login-container-input"
+                                className="input input-bordered focus:outline-0 focus:border-primary font-bold w-full max-w-xs login-container-input"
                                 {...register("bloodgroup", {
                                     required: {
                                         value: true,

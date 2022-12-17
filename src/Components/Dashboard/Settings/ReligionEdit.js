@@ -37,7 +37,7 @@ const ReligionEdit = () => {
             .then(res => res.json())
             .then(data => {
                 console.log('success', data);
-                toast('Users Update Successfully !!!');
+                toast.success('Data Update Successfully !!!');
                 reset();
             })
         navigate('/dashboard/religion')
@@ -53,7 +53,7 @@ const ReligionEdit = () => {
                             <input
                                 type="text"
                                 Value={religions.religion}
-                                className="input input-bordered font-bold w-full max-w-xs login-container-input"
+                                className="input focus:outline-0 focus:border-primary  input-bordered font-bold w-full max-w-xs login-container-input"
                                 {...register("religion", {
                                     required: {
                                         value: true,
@@ -67,7 +67,7 @@ const ReligionEdit = () => {
                             </label>
                         </div>
                         <div className='flex justify-between mt-10'>
-                            <input className='input input-bordered input-primary  max-w-xs cursor-pointer font-bold uppercase hover:bg-primary hover:text-white ' type="submit" value='Update' />
+                            <input className='input input-bordered focus:outline-0 input-primary  max-w-xs cursor-pointer font-bold uppercase hover:bg-primary hover:text-white ' type="submit" value='Update' />
                             <Link to='/dashboard/religion' className='btn '> Back</Link>
 
                         </div>

@@ -112,10 +112,6 @@ const LeadsEntry = () => {
                 <div className='h-4 w-4 bg-green-700  '></div>
                 <h1 className='text-xl font-bold ml-1'>Leads Entry Form</h1>
             </div>
-            {/* <div>
-                <p className='text-sm'>When you have access to Support Portal you can raise and manage you cases. To complete your registration request please provide details below</p>
-            </div> */}
-
             <div className='mt-5 '>
                 {/* -------- Leads entry form start--------------------- */}
                 <form onSubmit={handleSubmit(onSubmit)}>

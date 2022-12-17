@@ -1,16 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import { FaEdit } from 'react-icons/fa';
 import { MdDelete } from 'react-icons/md';
 
-const MaritalStatus = () => {
+const Opportunity = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const [updated, setUpdated] = useState(false)
       // -----------------post method  ----------------------
       const onSubmit = async (data)=>{ 
-        const url = 'http://localhost:5000/marital'
+        const url = 'http://localhost:5000/opportunity'
         fetch(url, {
             method: 'POST',
             body: JSON.stringify(data),
@@ -33,11 +35,11 @@ const MaritalStatus = () => {
         }
 
      // ---------------------get method -----------------
-     const [maritals, setMaritals] = useState([]);
+     const [opportunitys, setOpportunitys] = useState([]);
      useEffect(() => {
-         fetch('http://localhost:5000/marital')
+         fetch('http://localhost:5000/opportunity')
              .then(res => res.json())
-             .then(data => setMaritals(data));
+             .then(data => setOpportunitys(data));
  
      }, [updated]);
  
@@ -48,7 +50,7 @@ const MaritalStatus = () => {
     const  handleDelete = (id) => {
      const proceed  = window.confirm('Are you sure?')
      if(proceed){
-         const url = `http://localhost:5000/marital/${id}`
+         const url = `http://localhost:5000/opportunity/${id}`
          console.log(url)
          fetch(url, {
              method: 'DELETE'
@@ -56,8 +58,8 @@ const MaritalStatus = () => {
          .then(res => res.json())
          .then(data =>{
              console.log(data)
-             const remaining = maritals.filter(marital => marital._id !==id)
-             setMaritals(remaining);
+             const remaining = opportunitys.filter(Opportunity => Opportunity._id !==id)
+             setOpportunitys(remaining);
          })
  
      }
@@ -67,15 +69,15 @@ const MaritalStatus = () => {
         <div className='lg:flex lg:justify-start lg:ml-28 lg:items-start mt-16 lg:gap-14'>
         <div className="card w-96 bg-gray-200 ">
             <div className="card-body">
-                <h2 className="text-center text-xl font-bold">Marital Status</h2>
+                <h2 className="text-center text-xl font-bold">Opportunity</h2>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                        {/* -----------------------Male Field ------------------------------ */}
+                        {/* -----------------------Opportunity Field ------------------------------ */}
                         <div className="form-control w-full max-w-xs">
                             <input
                                 type="text"
-                                placeholder="Marital Status"
+                                placeholder="Opportunity"
                                 className="input input-bordered focus:border-primary  focus:outline-0 font-bold w-full max-w-xs login-container-input"
-                                {...register("marital", {
+                                {...register("opportunity", {
                                     required: {
                                         value: true,
                                         message: "❌  Please Fillup  Input Field"
@@ -83,7 +85,7 @@ const MaritalStatus = () => {
                                 })}
                             />
                             <label className="label">
-                                {errors.marital?.type === 'required' && <span className="label-text-alt text-red-700">{errors.marital.message}</span>}
+                                {errors.opportunity?.type === 'required' && <span className="label-text-alt text-red-700">{errors.opportunity.message}</span>}
 
                             </label>
                         </div>
@@ -98,7 +100,7 @@ const MaritalStatus = () => {
                     <thead>
                         <tr>
                             <th>SL</th>
-                            <th>Gender</th>
+                            <th>Opportunity</th>
                             <th>Action</th>
 
                         </tr>
@@ -107,13 +109,13 @@ const MaritalStatus = () => {
                         {/* <!-- row 1 map maritals data --> */}
 
                         {
-                            maritals?.map((marital, index) =>
-                                <tr key={marital._id} >
+                            opportunitys?.map((opportunity, index) =>
+                                <tr key={opportunity._id} >
                                     <th>{index + 1}</th>
-                                    <td>{marital.marital}</td>
+                                    <td>{opportunity.opportunity}</td>
                                     <td className='flex gap-4'>
-                                        <Link to={`/dashboard/maritalEdit/${marital._id}`}><FaEdit /></Link>
-                                        <button onClick={() => handleDelete(marital._id)}><MdDelete/></button>
+                                        <Link to={`/dashboard/opportunityEdit/${opportunity._id}`}><FaEdit /></Link>
+                                        <button onClick={() => handleDelete(opportunity._id)}><MdDelete/></button>
                                     </td>
 
                                 </tr>
@@ -128,4 +130,4 @@ const MaritalStatus = () => {
     );
 };
 
-export default MaritalStatus;
+export default Opportunity;

@@ -74,7 +74,7 @@ const Department = () => {
                             <input
                                 type="text"
                                 placeholder="Department"
-                                className="input input-bordered font-bold w-full max-w-xs login-container-input"
+                                className="input input-bordered focus:outline-0 focus:border-primary font-bold w-full max-w-xs login-container-input"
                                 {...register("department", {
                                     required: {
                                         value: true,
@@ -87,7 +87,7 @@ const Department = () => {
 
                             </label>
                         </div>
-                        <input className='input input-bordered input-primary w-full max-w-xs cursor-pointer font-bold uppercase hover:bg-primary hover:text-white ' type="submit" value='Submit' />
+                        <input className='input input-bordered focus:outline-0 input-primary w-full max-w-xs cursor-pointer font-bold uppercase hover:bg-primary hover:text-white ' type="submit" value='Submit' />
                     </form>
                 </div>
             </div>

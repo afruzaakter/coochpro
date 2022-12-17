@@ -76,7 +76,7 @@ const BusinessType = () => {
                             <input
                                 type="text"
                                 placeholder="Type of Business"
-                                className="input input-bordered font-bold w-full max-w-xs login-container-input"
+                                className="input input-bordered focus:outline-0 focus:border-primary font-bold w-full max-w-xs login-container-input"
                                 {...register("business", {
                                     required: {
                                         value: true,

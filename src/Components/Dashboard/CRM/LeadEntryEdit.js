@@ -290,7 +290,7 @@ const LeadEntryEdit = () => {
                         </div>
 
                         {/* ----------------------- Contact Person info  Input field Start------------------ */}
-                        <div className='borde border-b-2 rounded-lg border-gray-600 shadow-lg bg-slate-200 mb-3 p-3 px-10 '>
+                        <div className='borde border-b-2 rounded-lg border-gray-600 shadow-lg bg-slate-200 mb-3 p-2 px-10 '>
                             <>
                                 <span>Contact Person Information </span>
                                 <button className='btn btn-primary' onClick={() => handleAdd()} >
@@ -301,7 +301,7 @@ const LeadEntryEdit = () => {
                                     return (
                                         <div>
                                             {/* <h1>Contact Person {count}</h1> */}
-                                            <div className='flex gap-5 mt-4 border p-2 border-1 rounded-lg border-gray-400'>
+                                            <div className='flex gap-4 mt-4 border p-2 border-1 rounded-lg border-gray-400'>
 
                                             {/* ---------------- contact person info Full Name-------------------- */}
                                             <div className='form-control '>

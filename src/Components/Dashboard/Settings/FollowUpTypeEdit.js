@@ -1,29 +1,32 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 
-const DesignationEdit = () => {
+const FollowUpTypeEdit = () => {
     const { id } = useParams();
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
-    const navigate = useNavigate();
-    const [designations,setDesignations] = useState([])
+    const navigate = useNavigate()
+    const [followUpTypes, setFollowUpTypes] = useState([])
 
-    // -----------------Update data show method --------------
-   useEffect(()=>{
-    const url = `http://localhost:5000/designation/${id}`
-    fetch(url)
-    .then(res=>res.json())
-    .then(data=>setDesignations(data))
+    // -------------------- Update show data method ----------------
+    useEffect(() => {
+        const url = `http://localhost:5000/followUpType/${id}`
+        fetch(url)
+            .then(res => res.json())
+            .then(data => setFollowUpTypes(data))
 
-   }, [])
+    }, [])
+    console.log(followUpTypes)
 
-// ------------------update data method ---------------
+    // -------------Update Data ---------------------
     const onSubmit = (data) => {
-        const designation = {
-            designation: data.designation
+        const followUpType = {
+            followUpType: data.followUpType
         };
-        const url = `http://localhost:5000/designation/${id}`;
+        const url = `http://localhost:5000/followUpType/${id}`;
 
         console.log(url)
 
@@ -32,7 +35,7 @@ const DesignationEdit = () => {
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(designation)
+            body: JSON.stringify(followUpType)
         })
             .then(res => res.json())
             .then(data => {
@@ -40,21 +43,21 @@ const DesignationEdit = () => {
                 toast.success('Data Update Successfully !!!');
                 reset();
             })
-        navigate('/dashboard/designation')
+        navigate('/dashboard/followUpType')
     }
     return (
         <div className='flex justify-start ml-28 items-start mt-16 gap-14'>
         <div className="card w-96 bg-gray-200 ">
             <div className="card-body">
-                <h2 className="text-center text-xl font-bold">Update Designation</h2>
+                <h2 className="text-center text-xl font-bold">Update follow Up Type</h2>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     {/* -----------------------Male Field ------------------------------ */}
                     <div className="form-control w-full max-w-xs">
                         <input
                             type="text"
-                            Value={designations.designation}
-                            className="input input-bordered focus:outline-0 focus:border-primary font-bold w-full max-w-xs login-container-input"
-                            {...register("designation", {
+                            Value={followUpTypes.followUpType}
+                            className="input focus:outline-0 focus:border-primary  input-bordered font-bold w-full max-w-xs login-container-input"
+                            {...register("followUpType", {
                                 required: {
                                     value: true,
                                     message: "❌  Please Fillup  Input Field"
@@ -62,13 +65,13 @@ const DesignationEdit = () => {
                             })}
                         />
                         <label className="label">
-                            {errors.designation?.type === 'required' && <span className="label-text-alt text-red-700">{errors.designation.message}</span>}
+                            {errors.followUpType?.type === 'required' && <span className="label-text-alt text-red-700">{errors.followUpType.message}</span>}
 
                         </label>
                     </div>
                     <div className='flex justify-between mt-10'>
-                        <input className='input focus:outline-0  input-bordered input-primary  max-w-xs cursor-pointer font-bold uppercase hover:bg-primary hover:text-white ' type="submit" value='Update' />
-                        <Link to='/dashboard/designation' className='btn '> Back</Link>
+                        <input className='input focus:outline-0 input-bordered input-primary  max-w-xs cursor-pointer font-bold uppercase hover:bg-primary hover:text-white ' type="submit" value='Update' />
+                        <Link to='/dashboard/followUpType' className='btn '> Back</Link>
 
                     </div>
                 </form>
@@ -79,4 +82,4 @@ const DesignationEdit = () => {
     );
 };
 
-export default DesignationEdit;
+export default FollowUpTypeEdit;

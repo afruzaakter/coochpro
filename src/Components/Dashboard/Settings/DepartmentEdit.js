@@ -54,7 +54,7 @@ const DepartmentEdit = () => {
                             <input
                                 type="text"
                                 Value ={departments.department}
-                                className="input input-bordered font-bold w-full max-w-xs login-container-input"
+                                className="input input-bordered focus:outline-0 focus:border-primary font-bold w-full max-w-xs login-container-input"
                                 {...register("department", {
                                     required: {
                                         value: true,

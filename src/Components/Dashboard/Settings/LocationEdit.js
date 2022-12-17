@@ -57,7 +57,7 @@ const LocationEdit = () => {
                             <input
                                 type="text"
                                 Value = {locations.location}
-                                className="input input-bordered font-bold w-full max-w-xs login-container-input"
+                                className="input input-bordered focus:border-primary  focus:outline-0 font-bold w-full max-w-xs login-container-input"
                                 {...register("location", {
                                     required: {
                                         value: true,
@@ -71,7 +71,7 @@ const LocationEdit = () => {
                             </label>
                         </div>
                         <div className='flex justify-between mt-10'>
-                            <input className='input input-bordered input-primary  max-w-xs cursor-pointer font-bold uppercase hover:bg-primary hover:text-white ' type="submit" value='Update' />
+                            <input className='input focus:outline-0 input-bordered input-primary  max-w-xs cursor-pointer font-bold uppercase hover:bg-primary hover:text-white ' type="submit" value='Update' />
                             <Link to='/dashboard/location' className='btn '> Back</Link>
 
                         </div>

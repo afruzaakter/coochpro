@@ -74,7 +74,7 @@ const Location = () => {
                             <input
                                 type="text"
                                 placeholder="Location"
-                                className="input input-bordered font-bold w-full max-w-xs login-container-input"
+                                className="input focus:outline-0 focus:border-primary  input-bordered font-bold w-full max-w-xs login-container-input"
                                 {...register("location", {
                                     required: {
                                         value: true,
@@ -87,7 +87,7 @@ const Location = () => {
 
                             </label>
                         </div>
-                        <input className='input input-bordered input-primary w-full max-w-xs cursor-pointer font-bold uppercase hover:bg-primary hover:text-white ' type="submit" value='Submit' />
+                        <input className='input focus:outline-0 input-bordered input-primary w-full max-w-xs cursor-pointer font-bold uppercase hover:bg-primary hover:text-white ' type="submit" value='Submit' />
                     </form>
                 </div>
             </div>

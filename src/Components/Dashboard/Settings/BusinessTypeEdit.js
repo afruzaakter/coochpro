@@ -54,7 +54,7 @@ const BusinessTypeEdit = () => {
                             <input
                                 type="text"
                                 Value={businessed.business}
-                                className="input input-bordered font-bold w-full max-w-xs login-container-input"
+                                className="input focus:outline-0 focus:border-primary input-bordered font-bold w-full max-w-xs login-container-input"
                                 {...register("business", {
                                     required: {
                                         value: true,
@@ -68,7 +68,7 @@ const BusinessTypeEdit = () => {
                             </label>
                         </div>
                         <div className='flex justify-between mt-10'>
-                            <input className='input input-bordered input-primary  max-w-xs cursor-pointer font-bold uppercase hover:bg-primary hover:text-white ' type="submit" value='Update' />
+                            <input className='input focus:outline-0 input-bordered input-primary  max-w-xs cursor-pointer font-bold uppercase hover:bg-primary hover:text-white ' type="submit" value='Update' />
                             <Link to='/dashboard/businessType' className='btn '> Back</Link>
 
                         </div>
