@@ -71,10 +71,10 @@ const BloodGroup = () => {
                     <form onSubmit={handleSubmit(onSubmit)}>
                         {/* -----------------------Male Field ------------------------------ */}
                         <div className="form-control w-full max-w-xs">
-                            <input
+                        <input
                                 type="text"
-                                placeholder="Blood Group"
-                                className="input input-bordered focus:outline-0 focus:border-primary font-bold w-full max-w-xs login-container-input"
+                               placeholder='Blood Group'
+                                className={`input font-bold max-w-xs  focus:outline-0 rounded-sm border-gray-400 mt-1  w-full focus:border-blue-500  login-container-input ${errors.bloodgroup && 'border-red-600 focus:border-red-600'}`}
                                 {...register("bloodgroup", {
                                     required: {
                                         value: true,
@@ -82,8 +82,10 @@ const BloodGroup = () => {
                                     }
                                 })}
                             />
+                               
+
                              <label className="label">
-                            {errors.bloodGroup?.type === 'required' && <span className="label-text-alt text-red-700">{errors.bloodGroup.message}</span>}
+                            {errors.bloodgroup?.type === 'required' && <span className="label-text-alt text-red-700">{errors.bloodgroup.message}</span>}
 
                         </label>
                         </div>

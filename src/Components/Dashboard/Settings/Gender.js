@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import { toast, ToastContainer } from 'react-toastify';
 import { FaEdit } from 'react-icons/fa';
 import { MdDelete } from 'react-icons/md';
-import { Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
 
 
@@ -48,27 +48,27 @@ const Gender = () => {
     }, [updated]);
 
     // -----------------------Delete method ----------------------
-   
-//   const [id] =useParams()
 
-   const  handleDelete = (id) => {
-    const proceed  = window.confirm('Are you sure?')
-    if(proceed){
-        const url = `http://localhost:5000/gender/${id}`
-        console.log(url)
-        fetch(url, {
-            method: 'DELETE'
-        })
-        .then(res => res.json())
-        .then(data =>{
-            console.log(data)
-            const remaining = genders.filter(gender => gender._id !==id)
-            setGenders(remaining);
-        })
+    //   const [id] =useParams()
+
+    const handleDelete = (id) => {
+        const proceed = window.confirm('Are you sure?')
+        if (proceed) {
+            const url = `http://localhost:5000/gender/${id}`
+            console.log(url)
+            fetch(url, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    const remaining = genders.filter(gender => gender._id !== id)
+                    setGenders(remaining);
+                })
+
+        }
 
     }
-
-   }
 
     return (
 
@@ -78,11 +78,32 @@ const Gender = () => {
                     <h2 className="text-center text-xl font-bold">Gender</h2>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         {/* -----------------------Male Field ------------------------------ */}
-                        <div className="form-control w-full max-w-xs">
+                        {/* <div className="form-control w-full max-w-xs">
                             <input
                                 type="text"
                                 placeholder="Gender"
-                                className="input focus:outline-0 focus:border-primary  input-bordered font-bold w-full max-w-xs login-container-input"
+                                className={`input focus:outline-0 focus:border-primary  input-bordered font-bold w-full max-w-xs login-container-input  ${errors.gender && 'border-red-600 focus:border-red-600  focus:ring-red-600'} `}
+
+                               
+                                {...register("gender", {
+                                    required: {
+                                        value: true,
+                                        message: "❌  Please Fillup  Input Field"
+                                    }
+                                })}
+                            />
+                            <label className="label">
+                                {errors.gender?.type === 'required' && <span className="label-text-alt text-red-700">{errors.gender.message}</span>}
+
+                            </label>
+                        </div> */}
+
+                        <div className="form-control">
+                            {/* <label>Company Name</label> */}
+                            <input
+                                type="text"
+                                placeholder='Gender'
+                                className={`input font-bold max-w-xs  focus:outline-0 rounded-sm border-gray-400 mt-1  w-full focus:border-blue-500  login-container-input ${errors.gender && 'border-red-600 focus:border-red-600'}`}
                                 {...register("gender", {
                                     required: {
                                         value: true,
@@ -119,13 +140,13 @@ const Gender = () => {
                                 <tr>
                                     <th>{index + 1}</th>
                                     <td>{gender.gender}</td>
-                                    
+
                                     {/* <td>
                                        <FaEdit />
                                     </td> */}
                                     <td className='flex gap-4'>
-                                        <Link  to={`/dashboard/genderEdit/${gender._id}`}><FaEdit /></Link>
-                                        <button onClick={() => handleDelete(gender._id)}><MdDelete/></button>
+                                        <Link to={`/dashboard/genderEdit/${gender._id}`}><FaEdit /></Link>
+                                        <button onClick={() => handleDelete(gender._id)}><MdDelete /></button>
                                     </td>
 
                                 </tr>

@@ -18,7 +18,7 @@ import { MdLibraryAddCheck } from 'react-icons/md';
 import { BsArrowRightShort } from 'react-icons/bs';
 import { BsSearch } from 'react-icons/bs';
 import { AiOutlineUsergroupAdd } from 'react-icons/ai';
-
+import 'animate.css';
 import AllUser from './AllUser';
 import useAdmin from '../../hooks/useAdmin';
 
@@ -62,7 +62,7 @@ const Dashboard = () => {
                                     <BsSearch className={`text-gray-500 lext-lg float-left block cursor-pointer mr-2 ${!open && "mr-0"} `} />
                                     <input type='text' placeholder='Search' className={`text-base bg-transparent w-full text-white focus:outline-none ${!open && "hidden"} `} ></input>
                                 </div>
-                                <ul className='pt-2'>
+                                <ul className='pt-2 animate__animated animate__fadeInLeft'>
 
 
                                     {/* ***************************** Dashboard menu CMR Start *********************************** */}
@@ -74,7 +74,7 @@ const Dashboard = () => {
                                         </div>
                                     </li>
                                     {
-                                        crmSubMenuOpen && <ul>
+                                        crmSubMenuOpen && <ul className='animate__animated animate__lightSpeedInLeft'>
 
                                             <li className='text-gray-300 ml-8 text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-600    rounded-md mt-2  '><Link to='/dashboard/leadsEntry' className='w-full hover:bg-gray-300 '><MdKeyboardArrowRight />Leads Entry </Link></li>
 
@@ -128,7 +128,7 @@ const Dashboard = () => {
                                     </li>
                                     {
                                         HrmSubMenuOpen && (
-                                            <ul>
+                                            <ul className='animate__animated animate__lightSpeedInLeft'>
                                                 <li className='text-gray-300 ml-8 text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-600    rounded-md mt-2  '><Link to='/dashboard/profile' className='w-full hover:bg-gray-300 '><MdKeyboardArrowRight />Profile Entry</Link></li>
                                             </ul>
                                         )
@@ -149,7 +149,7 @@ const Dashboard = () => {
 
                                     {
                                         subMenuOpen && (
-                                            <ul className='mt-2'>
+                                            <ul className='mt-2 animate__animated animate__lightSpeedInLeft'>
                                                 <li onClick={() => setLibrarySubMenuOpen(!librarySubMenuOpen)} className={`text-gray-300 text-sm ml-5 flex items-start   hover:bg-gray-50 hover:text-gray-400 border-b   rounded-md mt-2 ${!open && "mr-0"} `}>
                                                     <div className='mr-4 w-full hover:bg-gray-50'>
                                                         <span className={`text-xl  hover:text-gray-900 block  ${!open ? "text-xl" : "ml-2"} `}><MdLibraryAddCheck /></span>
@@ -162,7 +162,7 @@ const Dashboard = () => {
 
                                                 {
                                                     librarySubMenuOpen && (
-                                                        <ul>
+                                                        <ul className='animate__animated animate__fadeInLeft'>
                                                             <li className='text-gray-300 ml-14 text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-600    rounded-md mt-2  '><Link to='/dashboard/gender' className='w-full hover:bg-gray-300 '><MdKeyboardArrowRight />Gender </Link></li>
 
                                                             <li className='text-gray-300 ml-14  text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-600  rounded-md mt-2  '><Link className='w-full hover:bg-gray-300 ' to='/dashboard/religion'><MdKeyboardArrowRight />Religion</Link></li>
@@ -200,7 +200,7 @@ const Dashboard = () => {
                                                 {
                                                     adminSubMenuOpen && (
 
-                                                        <ul>
+                                                        <ul className='animate__animated animate__lightSpeedInLeft'>
                                                             {
                                                                 admin && <li className='text-gray-300 ml-14 text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-600  rounded-md mt-2 '><Link className='w-full hover:bg-gray-50' to='/dashboard/allUser'> <AiOutlineUsergroupAdd />Role Manage</Link></li>
 

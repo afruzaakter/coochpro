@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import { FaEdit } from 'react-icons/fa';
 import { MdDelete } from 'react-icons/md';
-
+import 'animate.css';
 
 const LeadsEntry = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
@@ -121,12 +121,12 @@ const LeadsEntry = () => {
 
                             <div className='flex gap-8'>
                                 {/* --------------------------- Input field Company Name---------------- */}
-                                <div className="form-control ">
+                                <div className="form-control">
                                     <label>Company Name</label>
                                     <input
                                         type="text"
 
-                                        className="input font-bold w-96  focus:outline-0 rounded-sm border-gray-400 mt-1  w-full focus:border-blue-500  login-container-input"
+                                        className={`input font-bold w-96  focus:outline-0 rounded-sm border-gray-400 mt-1  w-full focus:border-blue-500  login-container-input ${errors.companyName && 'border-red-600 focus:border-red-600'}`}
                                         {...register("companyName", {
                                             required: {
                                                 value: true,
@@ -145,7 +145,7 @@ const LeadsEntry = () => {
                                     <input
                                         type="text"
 
-                                        className="input font-bold  focus:outline-0 w-96 rounded-sm border-gray-400 mt-1  w-full focus:border-blue-500  login-container-input"
+                                        className={`input font-bold  focus:outline-0 w-96 rounded-sm border-gray-400 mt-1  w-full focus:border-blue-500 login-container-input ${errors.companyShortName && 'border-red-600 focus:border-red-600'}`}
                                         {...register("companyShortName", {
                                             required: {
                                                 value: true,
@@ -159,32 +159,77 @@ const LeadsEntry = () => {
                                     </label>
                                 </div>
                                 {/* --------------------------- Input field Type of Business ---------------- */}
+                                
                                 <div className="form-control ">
                                     <label>Type of Business</label>
-                                    <select {...register("business")} className="input font-bold w-96 focus:outline-0 rounded-sm  border-gray-400 mt-1  w-full focus:border-blue-500  login-container-input ">
+                                    <select {...register("business", {
+                                        required: {
+                                            value: true,
+                                            message: "❌ Business Type is Required"
+                                        }
+                                    }
+                              )} className={`input  w-96 focus:outline-0 rounded-sm  border-gray-400 mt-1   focus:border-blue-500  login-container-input ${errors.business && 'focus:border-red-600 border-red-600 focus:ring-red-600'} `}>
+                                        <option value='' >--Select Company Name--</option>
                                         {
                                             businessed.map((business) => <option>{business.business}</option>)
                                         }
 
 
                                     </select>
+                                    <label className='label'>
+                                        {errors.business?.type === 'required' && <span className="label-text-alt text-red-700">{errors.business.message}</span>}
 
+                                    </label>
                                 </div>
+
                             </div>
                             <div className='flex gap-8'>
                                 {/* --------------------------- Input field Location ---------------- */}
-                                <div className="form-control  ">
+                                {/* <div className="form-control  ">
                                     <label>Location</label>
-                                    <select {...register("location")} className="input font-bold w-96  focus:outline-0 rounded-sm  border-gray-400 mt-1  w-full focus:border-blue-500  login-container-input ">
+                                    <select {...register("location", {
+                                        required: {
+                                            value: true,
+                                            message: "❌ Location is Required"
+                                        }
+                                    }
+                                    )} className={`input  w-96  focus:outline-0 rounded-sm  border-gray-400 mt-1  w-full focus:border-blue-500  login-container-input ${errors.location  && 'focus:border-red-600 border-red-600 focus:ring-red-600'}`}>
+
+                                        <option value=' '>--Select Location--</option>
                                         {
                                             locations.map((location) => <option>{location.location}</option>)
                                         }
 
 
                                     </select>
+                                    <label className='label'>
+                                        {errors.location?.type === 'required' && <span className="label-text-alt text-red-700">{errors.location.message}</span>}
 
+                                    </label>
+
+                                </div> */}
+                              
+                              <div className="form-control ">
+                                    <label>Type of Business</label>
+                                    <select {...register("location", {
+                                        required: {
+                                            value: true,
+                                            message: "❌ Location is Required"
+                                        }
+                                    }
+                              )} className={`input  w-96 focus:outline-0 rounded-sm  border-gray-400 mt-1   focus:border-blue-500  login-container-input ${errors.location && 'focus:border-red-600 border-red-600 focus:ring-red-600'} `}>
+                                        <option value='' >--Select Location--</option>
+                                        {
+                                            locations.map((location) => <option>{location.location}</option>)
+                                        }
+
+
+                                    </select>
+                                    <label className='label'>
+                                        {errors.location?.type === 'required' && <span className="label-text-alt text-red-700">{errors.location.message}</span>}
+
+                                    </label>
                                 </div>
-
 
                                 {/* -----------------------  Company Official Website Input field------------------ */}
                                 <div className="form-control  ">
@@ -192,7 +237,7 @@ const LeadsEntry = () => {
                                     <input
                                         type="text"
 
-                                        className="input font-bold w-96 focus:outline-0  rounded-sm border-gray-400 mt-1  w-full focus:border-blue-500  login-container-input"
+                                        className={`input font-bold w-96 focus:outline-0  rounded-sm border-gray-400 mt-1  w-full focus:border-blue-500  login-container-input ${errors.website && 'border-red-600 focus:border-red-600'}`}
                                         {...register("website", {
                                             required: {
                                                 value: true,
@@ -205,30 +250,30 @@ const LeadsEntry = () => {
 
                                     </label>
                                 </div>
-                      
-                              {/* -----------------------  Contact Number Input field------------------ */}
-                              <div className="form-control ">
-                                <label>Contact Number</label>
-                                <input
-                                    type="text"
 
-                                    className="input font-bold  focus:outline-0 w-96  rounded-sm border-gray-400 mt-1  w-full focus:border-blue-500  login-container-input"
-                                    {...register("contactNumber", {
-                                        required: {
-                                            value: true,
-                                            message: "❌  Please Fillup  Input Field"
-                                        }
-                                    })}
-                                />
-                                <label className="label">
-                                    {errors.contactNumber?.type === 'required' && <span className="label-text-alt text-red-700">{errors.contactNumber.message}</span>}
+                                {/* -----------------------  Contact Number Input field------------------ */}
+                                <div className="form-control ">
+                                    <label>Contact Number</label>
+                                    <input
+                                        type="text"
 
-                                </label>
+                                        className={`input font-bold  focus:outline-0 w-96  rounded-sm border-gray-400 mt-1  w-full focus:border-blue-500  login-container-input ${errors.contactNumber && 'border-red-600 focus:border-red-600'}`}
+                                        {...register("contactNumber", {
+                                            required: {
+                                                value: true,
+                                                message: "❌  Please Fillup  Input Field"
+                                            }
+                                        })}
+                                    />
+                                    <label className="label">
+                                        {errors.contactNumber?.type === 'required' && <span className="label-text-alt text-red-700">{errors.contactNumber.message}</span>}
+
+                                    </label>
+                                </div>
+
+
                             </div>
 
-
-                            </div>
-                          
 
                             {/* ----------------------------Form Left side End ---------------      */}
                             {/* ----------------------------Form Right side start---------------      */}
@@ -236,7 +281,7 @@ const LeadsEntry = () => {
 
                             <div className='flex gap-8'>
 
-                               
+
 
 
                                 {/* -----------------------  Address Line 1 Input field------------------ */}
@@ -245,7 +290,7 @@ const LeadsEntry = () => {
                                     <input
                                         type="text"
 
-                                        className="input font-bold  focus:outline-0 rounded-sm w-96 border-gray-400 mt-1  w-full focus:border-blue-500  login-container-input"
+                                        className={`input font-bold  focus:outline-0 w-96  rounded-sm border-gray-400 mt-1  w-full focus:border-blue-500  login-container-input ${errors.address1 && 'border-red-600 focus:border-red-600'}`}
                                         {...register("address1", {
                                             required: {
                                                 value: true,
@@ -266,7 +311,7 @@ const LeadsEntry = () => {
                                     <input
                                         type="text"
 
-                                        className="input font-bold  focus:outline-0 rounded-sm w-96 border-gray-400 mt-1  w-full focus:border-blue-500  login-container-input"
+                                        className={`input font-bold  focus:outline-0 w-96  rounded-sm border-gray-400 mt-1  w-full focus:border-blue-500  login-container-input ${errors.address2 && 'border-red-600 focus:border-red-600'}`}
                                         {...register("address2", {
                                             required: {
                                                 value: true,
@@ -279,13 +324,13 @@ const LeadsEntry = () => {
 
                                     </label>
                                 </div>
-                                 {/* -----------------------  Company Postal Code Input field------------------ */}
-                                 <div className="form-control  ">
+                                {/* -----------------------  Company Postal Code Input field------------------ */}
+                                <div className="form-control  ">
                                     <label>Postal Code</label>
                                     <input
                                         type="text"
 
-                                        className="input font-bold w-96 focus:outline-0  rounded-sm border-gray-400 mt-1  w-full focus:border-blue-500  login-container-input"
+                                        className={`input font-bold  focus:outline-0 w-96  rounded-sm border-gray-400 mt-1  w-full focus:border-blue-500  login-container-input ${errors.postalcode && 'border-red-600 focus:border-red-600'}`}
                                         {...register("postalcode", {
                                             required: {
                                                 value: true,
@@ -307,7 +352,7 @@ const LeadsEntry = () => {
                             <>
                                 <span>Contact Person Information </span>
                                 <button className='btn btn-primary' onClick={() => handleAdd()} >
-                                    
+
                                     +
                                 </button>
                                 {value.map((data, i) => {
@@ -316,94 +361,94 @@ const LeadsEntry = () => {
                                             {/* <h1>Contact Person {count}</h1> */}
                                             <div className='flex gap-5 mt-4 border p-2 border-1 rounded-lg border-gray-400'>
 
-                                            {/* ---------------- contact person info Full Name-------------------- */}
-                                            <div className='form-control '>
-                                                <label className='mb-2'>Full Name</label>
-                                                <input
-                                                    type="text"
+                                                {/* ---------------- contact person info Full Name-------------------- */}
+                                                <div className='form-control '>
+                                                    <label className='mb-2'>Full Name</label>
+                                                    <input
+                                                        type="text"
 
-                                                    className="input font-bold  w-60 focus:outline-0  rounded-sm border-gray-400    focus:border-blue-500  login-container-input"
-                                                    {...register("fullName", {
-                                                        required: {
-                                                            value: true,
-                                                            message: "❌  Please Fillup  Input Field"
+                                                        className="input font-bold  w-60 focus:outline-0  rounded-sm border-gray-400    focus:border-blue-500  login-container-input"
+                                                        {...register("fullName", {
+                                                            required: {
+                                                                value: true,
+                                                                message: "❌  Please Fillup  Input Field"
+                                                            }
+                                                        })}
+                                                    />
+                                                    <label className="label">
+                                                        {errors.fullName?.type === 'required' && <span className="label-text-alt text-red-700">{errors.fullName.message}</span>}
+
+                                                    </label>
+                                                </div>
+                                                {/* ---------------- contact person info Designation -------------------- */}
+                                                <div className='form-control '>
+                                                    <label className='mb-2'>Designation</label>
+                                                    <select {...register("designation")} className="input w   w-52 font-bold  focus:outline-0 rounded-sm  border-gray-400  w-full focus:border-blue-500  login-container-input ">
+                                                        {
+                                                            designations.map((designation) => <option>{designation.designation}</option>)
                                                         }
-                                                    })}
-                                                />
-                                                <label className="label">
-                                                    {errors.fullName?.type === 'required' && <span className="label-text-alt text-red-700">{errors.fullName.message}</span>}
-
-                                                </label>
-                                            </div>
-                                            {/* ---------------- contact person info Designation -------------------- */}
-                                            <div className='form-control '>
-                                                <label className='mb-2'>Designation</label>
-                                                <select {...register("designation")} className="input w   w-52 font-bold  focus:outline-0 rounded-sm  border-gray-400  w-full focus:border-blue-500  login-container-input ">
-                                                    {
-                                                        designations.map((designation) => <option>{designation.designation}</option>)
-                                                    }
 
 
-                                                </select>
+                                                    </select>
 
-                                            </div>
-                                            {/* ---------------- contact person info Department -------------------- */}
-                                            <div className='form-control '>
-                                                <label className='mb-2'>Department</label>
-                                                <select {...register("department")} className="input   focus:outline-0 rounded-sm font-bold  border-gray-400  w-52 focus:border-blue-500  login-container-input ">
-                                                    {
-                                                        departments.map((department) => <option>{department.department}</option>)
-                                                    }
-                                                </select>
-
-                                            </div>
-
-
-                                            {/* ---------------- contact person info Mobile Number -------------------- */}
-                                            <div className='form-control '>
-                                                <label className='mb-2'>Mobile Number</label>
-                                                <input
-                                                    type="text"
-
-                                                    className="input font-bold  focus:outline-0 w-48 rounded-sm border-gray-400    focus:border-blue-500  login-container-input"
-                                                    {...register("mobileNumber", {
-                                                        required: {
-                                                            value: true,
-                                                            message: "❌  Please Fillup  Input Field"
+                                                </div>
+                                                {/* ---------------- contact person info Department -------------------- */}
+                                                <div className='form-control '>
+                                                    <label className='mb-2'>Department</label>
+                                                    <select {...register("department")} className="input   focus:outline-0 rounded-sm font-bold  border-gray-400  w-52 focus:border-blue-500  login-container-input ">
+                                                        {
+                                                            departments.map((department) => <option>{department.department}</option>)
                                                         }
-                                                    })}
-                                                />
-                                                <label className="label">
-                                                    {errors.mobileNumber?.type === 'required' && <span className="label-text-alt text-red-700">{errors.mobileNumber.message}</span>}
+                                                    </select>
 
-                                                </label>
+                                                </div>
+
+
+                                                {/* ---------------- contact person info Mobile Number -------------------- */}
+                                                <div className='form-control '>
+                                                    <label className='mb-2'>Mobile Number</label>
+                                                    <input
+                                                        type="text"
+
+                                                        className="input font-bold  focus:outline-0 w-48 rounded-sm border-gray-400    focus:border-blue-500  login-container-input"
+                                                        {...register("mobileNumber", {
+                                                            required: {
+                                                                value: true,
+                                                                message: "❌  Please Fillup  Input Field"
+                                                            }
+                                                        })}
+                                                    />
+                                                    <label className="label">
+                                                        {errors.mobileNumber?.type === 'required' && <span className="label-text-alt text-red-700">{errors.mobileNumber.message}</span>}
+
+                                                    </label>
+                                                </div>
+
+
+                                                {/* ---------------- contact person info Email -------------------- */}
+                                                <div className='form-control '>
+                                                    <label className='mb-2'>Email</label>
+                                                    <input
+                                                        type="text"
+
+                                                        className="input font-bold  focus:outline-0 w-52 rounded-sm border-gray-400    focus:border-blue-500  login-container-input"
+                                                        {...register("email", {
+                                                            required: {
+                                                                value: true,
+                                                                message: "❌  Please Fillup  Input Field"
+                                                            }
+                                                        })}
+                                                    />
+                                                    <label className="label">
+                                                        {errors.email?.type === 'required' && <span className="label-text-alt text-red-700">{errors.email.message}</span>}
+
+                                                    </label>
+                                                </div>
+                                                <div>
+                                                    <button className=' mt-8 outline-2 btn hover:btn-none btn-outline border-gray-400 ' onClick={() => PersonHandleDelete(i)}>❌</button>
+                                                </div>
+
                                             </div>
-
-
-                                            {/* ---------------- contact person info Email -------------------- */}
-                                            <div className='form-control '>
-                                                <label className='mb-2'>Email</label>
-                                                <input
-                                                    type="text"
-
-                                                    className="input font-bold  focus:outline-0 w-52 rounded-sm border-gray-400    focus:border-blue-500  login-container-input"
-                                                    {...register("email", {
-                                                        required: {
-                                                            value: true,
-                                                            message: "❌  Please Fillup  Input Field"
-                                                        }
-                                                    })}
-                                                />
-                                                <label className="label">
-                                                    {errors.email?.type === 'required' && <span className="label-text-alt text-red-700">{errors.email.message}</span>}
-
-                                                </label>
-                                            </div>
-                                            <div>
-                                                <button className=' mt-8 outline-2 btn hover:btn-none btn-outline border-gray-400 ' onClick={() => PersonHandleDelete(i)}>❌</button>
-                                            </div>
-
-                                        </div>
                                         </div>
                                     )
                                 })}
@@ -421,8 +466,8 @@ const LeadsEntry = () => {
                     </div>
                     {/* ---------------------Submit Field -------------------------- */}
                     <div className='flex gap-3 justify-center items-center mt-6'>
-                        <input className='btn input-bordered   max-w-xs cursor-pointer font-bold uppercase hover:bg-primary hover:border-0 hover:text-white ' type="submit" value='Submit' />
-                        <Link to='/dashboard' className='btn btn-outline border-gray-500 input-bordered input-primary  max-w-xs cursor-pointer font-bold uppercase  hover:text-white  '> Cancel</Link>
+                        <input className=' animate_animated animate__fadeInLeft btn input-bordered   max-w-xs cursor-pointer font-bold uppercase hover:bg-primary hover:border-0 hover:text-white ' type="submit" value='Submit' />
+                        <Link to='/dashboard' className='  btn btn-outline border-gray-500 input-bordered input-primary  max-w-xs cursor-pointer font-bold uppercase  hover:text-white  '> Cancel</Link>
 
                     </div>
                 </form>

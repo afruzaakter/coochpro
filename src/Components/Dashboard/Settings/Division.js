@@ -74,7 +74,7 @@ const Division = () => {
                             <input
                                 type="text"
                                 placeholder="Division"
-                                className="input focus:outline-0 focus:border-primary  input-bordered font-bold w-full max-w-xs login-container-input"
+                                className={`input font-bold max-w-xs  focus:outline-0 rounded-sm border-gray-400 mt-1  w-full focus:border-blue-500  login-container-input ${errors.division && 'border-red-600 focus:border-red-600'}`}
                                 {...register("division", {
                                     required: {
                                         value: true,
