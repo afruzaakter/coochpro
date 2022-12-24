@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+.login-banner{
+  background-image: url('../src/Images/bg.webp');
+}
+/* .login-bg{
+  
+  background: linear-gradient( #3633ee,#535dec 10%,#007aff 100%,#3f3cf1,#5856d6,#ff2d55);
+} */

@@ -1,23 +1,36 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This Project[Live Link](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Project Description:
+ 1. Routing System React Router Dom.
+ 2. Tailwind CSS daisyUI.
+ 3. Firebase Authentication System Email, Password and google.
+ 4. Input Field for React hook form.
+ 5. React Firebase Hook
 
-In the project directory, you can run:
+:
 
-### `npm start`
+### `Package Install`
+1. React hook form( npm install react-hook-form ).
+2. Firebase( npm i firebase ).
+3. React toastify( npm i react-toastify ).
+4. React Spinner( npm i react-spinners ).
+5. React Icon( npm install react-icons --save ).
+6. Animation CSS( npm install animate.css --save ).
+7. React firebase hook ( npm install --save react-firebase-hooks ).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+### `Package Install Website List`
+1. React hook form( https://react-hook-form.com/ ).
+2. Firebase( https://console.firebase.google.com/u/0/ ).
+3. React toastify( https://www.npmjs.com/package/react-toastify ).
+4. React Spinner( https://www.npmjs.com/package/react-spinners ) .
+5. React Icon( https://react-icons.github.io/react-icons/ ).
+6. Animation CSS( https://animate.style/ ).
+7. React Firebase Hook( https://github.com/CSFrequency/react-firebase-hooks ).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
 

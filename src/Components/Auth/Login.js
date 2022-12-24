@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import Loading from '../../Shared/Loading';
+import google from '../../Images/googleicon.webp';
 
 const Login = () => {
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
@@ -35,20 +36,25 @@ const Login = () => {
         signInWithEmailAndPassword(data.email, data.password);
     }
     return (
-        <div className='h-screen m-auto flex justify-center items-center'>
-            <div className="card w-96  bg-gray-400 shadow-xl ">
-                <div className="card-body">
-                    <h2 className="text-3xl text-center uppercase ">Login</h2>
+        <div className='h-screen m-auto flex justify-center items-center login-banner'>
+            <div className="card w-2/6   login-bg bg-blue-900 bg-gradient-to-r bg-opacity-60 shadow-xl ">
+           
+                <div className="card-body items-center">
+                <h2 className="text-4xl text-white text-center uppercase ">Create An Account</h2>
+                <button className="btn text-white mt-5 mb-3 text-2xl  btn-outline" onClick={() => signInWithGoogle()}>  
+                <img className='text-white object-cover h-6 w-6 mr-3' src={google} alt=""/>
+                Login with Google</button>
+                    
 
                     {/* ------------- Login Form start ----------------------- */}
 
                     <form onSubmit={handleSubmit(onSubmit)}>
                         {/* ----------------------Email input field ------------------------- */}
-                        <div className="form-control w-full max-w-xs">
+                        <div className="form-control w-96  max-w-xs">
                             <input
                                 type="email"
                                 placeholder="Your Email"
-                                className="input  w-full max-w-xs login-container-input"
+                                className="input text-2xl font-bold text-white  w-96  opacity-60 max-w-xs login-container-input"
                                 {...register("email", {
                                     required: {
                                         value: true,
@@ -71,7 +77,7 @@ const Login = () => {
                             <input
                                 type="password"
                                 placeholder="Password"
-                                className="input  w-full max-w-xs login-container-input"
+                                className="input text-2xl font-bold opacity-60 text-white w-full max-w-xs login-container-input"
                                 {...register("password", {
                                     required: {
                                         value: true,
@@ -90,15 +96,15 @@ const Login = () => {
                             </label>
                         </div>
                         {signInError}
-                        <input className='btn w-full btn-primary text-white text-xl max-w-xs' type="submit" value='Login' />
+                        <input className='btn w-full btn-outline text-white text-xl max-w-xs' type="submit" value='Login' />
                     </form>
 
                     {/* ------------- Login Form end ----------------------- */}
-                    <p>New to  <Link className='text-primary font-bold' to="/signup">Create New Account</Link> </p>
-                    <p>Forgot Password? <Link className='text-primary font-bold' to="/reset">Reset Password</Link> </p>
+                    <p > <Link className='text-white text-xl font-bold ml-15' to="/signup">Create New Account</Link> </p>
+                    <p className='text-secondary text-xl font-bold'>Forgot Password? <Link className='text-white font-bold' to="/reset">Reset Password</Link> </p>
 
-                    <div className="divider">OR</div>
-                    <button className="btn btn-outline" onClick={() => signInWithGoogle()}>Continue with Google</button>
+                    {/* <div className="divider text-white">OR</div> */}
+                    
                 </div>
             </div>
         </div>
