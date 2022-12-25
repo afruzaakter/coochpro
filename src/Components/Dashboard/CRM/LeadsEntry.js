@@ -72,7 +72,7 @@ const LeadsEntry = () => {
             .then((data) => {
                 toast.success('Data added successfully!!!')
                 setUpdated(!updated)
-                console.log("contact person", data)
+                // console.log("contact person", data)
                 reset()
             })
 
@@ -108,9 +108,9 @@ const LeadsEntry = () => {
     }
     return (
         <div className='m-3'>
-            <div className='flex items-center g-3'>
-                <div className='h-4 w-4 bg-green-700  '></div>
-                <h1 className='text-xl font-bold ml-1'>Leads Entry Form</h1>
+            <div className='flex items-center g-3 ml-10'>
+                <div className='h-5 w-5 bg-green-700  '></div>
+                <h1 className='text-3xl font-bold ml-1'>Leads Entry </h1>
             </div>
             <div className='mt-5 '>
                 {/* -------- Leads entry form start--------------------- */}
@@ -210,7 +210,7 @@ const LeadsEntry = () => {
                                 </div> */}
                               
                               <div className="form-control ">
-                                    <label>Type of Business</label>
+                                    <label>Location</label>
                                     <select {...register("location", {
                                         required: {
                                             value: true,
@@ -478,7 +478,7 @@ const LeadsEntry = () => {
             </div>
             {/* ------------------ Form end-------------------------- */}
 
-            <div className="overflow-x-auto ">
+            <div className="overflow-x-auto mt-5">
                 <table className="table w-full">
                     {/* <!-- head --> */}
                     <thead>
@@ -486,18 +486,12 @@ const LeadsEntry = () => {
                             <th>SL</th>
                             <th>Company Name</th>
                             <th>Company Short Name</th>
-                            {/* <th>Business Type</th>
-                            <th>Location</th>
-                            <th>Address 1</th>
-                            <th>Address 2</th>
-                            <th>Postal Code</th>
-                            <th>Company Website</th>
-                            <th>Contact Number</th> */}
                             <th>Full Name</th>
                             <th>Designation</th>
                             {/* <th>Department</th> */}
                             <th>Mobile Number</th>
                             <th>Email</th>
+                            <th>Action</th>
 
                         </tr>
                     </thead>
@@ -505,27 +499,16 @@ const LeadsEntry = () => {
                         {/* <!-- row 1 --> */}
 
                         {
-                            leads?.map((lead, index) =>
+                            leads?.slice(0).reverse().map((lead, index) =>
                                 <tr className='text-sm'>
                                     <th>{index + 1}</th>
                                     <td>{lead.companyName}</td>
                                     <td>{lead.companyShortName}</td>
-                                    {/* <td>{lead.business}</td>
-                                    <td>{lead.location}</td>
-                                    <td>{lead.address1}</td>
-                                    <td>{lead.address2}</td>
-                                    <td>{lead.postalcode}</td>
-                                    <td>{lead.website}</td>
-                                    <td>{lead.contactNumber}</td> */}
                                     <td>{lead.fullName}</td>
                                     <td>{lead.designation}</td>
                                     {/* <td>{lead.department}</td> */}
                                     <td>{lead.mobileNumber}</td>
                                     <td>{lead.email}</td>
-
-                                    {/* <td>
-                                       <FaEdit />
-                                    </td> */}
                                     <td className='flex gap-4'>
                                         <Link to={`/dashboard/leadEntryEdit/${lead._id}`}><FaEdit /></Link>
                                         <button onClick={() => handleDelete(lead._id)}><MdDelete /></button>

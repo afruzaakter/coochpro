@@ -1,13 +1,15 @@
 # Project Live Link
 
-https://github.com/facebook/create-react-app
+[Visit Website](https://github.com/facebook/create-react-app).
 
 ## Project Description:
  1. Routing System React Router Dom.
  2. Tailwind CSS daisyUI.
  3. Firebase Authentication System Email, Password and google.
  4. Input Field for React hook form.
- 5. React Firebase Hook
+ 5. React Firebase Hook.
+ 6. Export Data to Excel Sheet for React - CSV .
+ 7. Print and Pdf file for React to Print .
 
 :
 
@@ -19,6 +21,8 @@ https://github.com/facebook/create-react-app
 5. React Icon( npm install react-icons --save ).
 6. Animation CSS( npm install animate.css --save ).
 7. React firebase hook ( npm install --save react-firebase-hooks ).
+8. React to Print( npm i react-to-print ).
+9. React-CSV( npm i react-csv ).
 
 
 
@@ -30,6 +34,8 @@ https://github.com/facebook/create-react-app
 5. React Icon( https://react-icons.github.io/react-icons/ ).
 6. Animation CSS( https://animate.style/ ).
 7. React Firebase Hook( https://github.com/CSFrequency/react-firebase-hooks ).
+8. React to Print( https://www.npmjs.com/package/react-to-print ).
+9. React-CSV( https://www.npmjs.com/package/react-csv ).
 
 
 ### `npm run build`

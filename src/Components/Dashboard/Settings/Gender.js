@@ -136,7 +136,7 @@ const Gender = () => {
                         {/* <!-- row 1 --> */}
 
                         {
-                            genders?.map((gender, index) =>
+                            genders.slice(0).reverse().map((gender, index) =>
                                 <tr>
                                     <th>{index + 1}</th>
                                     <td>{gender.gender}</td>

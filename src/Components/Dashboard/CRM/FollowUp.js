@@ -59,7 +59,7 @@ const FollowUp = () => {
             .then(res => res.json())
             .then(data => setFollowUps(data));
 
-    }, []);
+    }, [!updated]);
 
 
     const onSubmit = (data) => {
@@ -131,7 +131,7 @@ const FollowUp = () => {
                                             message: "❌ Company Name is Required"
                                         }
                                     }
-                                    )} className={`input  w-96 focus:outline-0 rounded-sm  border-gray-400 mt-1  w-full focus:border-blue-500  login-container-input ${errors.companyName && 'focus:border-red-600 border-red-600 focus:ring-red-600'} `}>
+                                    )} className={`input  w-64 focus:outline-0 rounded-sm  border-gray-400 mt-1  w-full focus:border-blue-500  login-container-input ${errors.companyName && 'focus:border-red-600 border-red-600 focus:ring-red-600'} `}>
                                         <option value='' >--Select Company Name--</option>
                                         {
                                             leads.map((lead) => <option>{lead.companyName}</option>)
@@ -154,7 +154,7 @@ const FollowUp = () => {
                                             message: "❌ Follow Up Type is Required"
                                         }
                                     }
-                                    )} className={`input  w-96 focus:outline-0 rounded-sm  border-gray-400 mt-1  w-full focus:border-blue-500  login-container-input ${errors.followUpType && 'focus:border-red-600 border-red-600 focus:ring-red-600'} `}>
+                                    )} className={`input  w-64 focus:outline-0 rounded-sm  border-gray-400 mt-1  w-full focus:border-blue-500  login-container-input ${errors.followUpType && 'focus:border-red-600 border-red-600 focus:ring-red-600'} `}>
                                         <option value='' >--Select Follow Up Type--</option>
                                         {
                                             followUpTypes.map((followUpType) => <option>{followUpType.followUpType}</option>)
@@ -176,7 +176,7 @@ const FollowUp = () => {
                                             message: "❌ opportunity is Required"
                                         }
                                     }
-                                    )} className={`input font-bold w-96  focus:outline-0 rounded-sm  border-gray-400 mt-1  w-full focus:border-blue-500  login-container-input ${errors.opportunity  && 'focus:border-red-600 border-red-600 focus:ring-red-600'} `}>
+                                    )} className={`input font-bold w-64  focus:outline-0 rounded-sm  border-gray-400 mt-1  w-full focus:border-blue-500  login-container-input ${errors.opportunity  && 'focus:border-red-600 border-red-600 focus:ring-red-600'} `}>
                                         <option value=''>--Select Opportunity--</option>
                                         {
                                             opportunitys?.map((opportunity) => <option > {opportunity.opportunity}</option>)
@@ -187,7 +187,25 @@ const FollowUp = () => {
 
                                     </label>
                                 </div>
-                                {/* ------------------- select checkbox ----------------- */}
+                                 {/* -----------------------  Contact Number Input field------------------ */}
+                                 <div className="form-control ">
+                                    <label>Description</label>
+                                    <textarea
+                                        type="text"
+
+                                        className={`input font-bold  focus:outline-0 w-64  rounded-sm border-gray-400 mt-1  w-full focus:border-blue-500  login-container-input ${errors.description && 'focus:border-red-600 border-red-600'}`}
+                                        {...register("description", {
+                                            required: {
+                                                value: true,
+                                                message: "❌  Please Fillup  Input Field"
+                                            }
+                                        })}
+                                    />
+                                    <label className="label">
+                                        {errors.description?.type === 'required' && <span className="label-text-alt text-red-700">{errors.description.message}</span>}
+
+                                    </label>
+                                </div>
                               
 
 
@@ -199,7 +217,7 @@ const FollowUp = () => {
                                     <input
                                         type="date"
 
-                                        className={`input font-bold w-96 focus:outline-0  rounded-sm border-gray-400 mt-1  w-full focus:border-blue-500  login-container-input ${errors.date && 'focus:border-red-600 border-red-600'} `}
+                                        className={`input font-bold w-72 focus:outline-0  rounded-sm border-gray-400 mt-1  w-full focus:border-blue-500  login-container-input ${errors.date && 'focus:border-red-600 border-red-600'} `}
                                         {...register("date", {
                                             required: {
                                                 value: true,
@@ -245,14 +263,16 @@ const FollowUp = () => {
 
                             </div> */}
 
+                              
+
                                 {/* -----------------------  Contact Number Input field------------------ */}
                                 <div className="form-control ">
-                                    <label>Description</label>
+                                    <label>Next Follow Up Issue</label>
                                     <textarea
                                         type="text"
 
-                                        className={`input font-bold  focus:outline-0 w-96  rounded-sm border-gray-400 mt-1  w-full focus:border-blue-500  login-container-input ${errors.description && 'focus:border-red-600 border-red-600'}`}
-                                        {...register("description", {
+                                        className={`input font-bold  focus:outline-0 w-96  rounded-sm border-gray-400 mt-1  w-full focus:border-blue-500  login-container-input ${errors.followupIssue && 'focus:border-red-600 border-red-600'}`}
+                                        {...register("followupIssue", {
                                             required: {
                                                 value: true,
                                                 message: "❌  Please Fillup  Input Field"
@@ -260,7 +280,7 @@ const FollowUp = () => {
                                         })}
                                     />
                                     <label className="label">
-                                        {errors.description?.type === 'required' && <span className="label-text-alt text-red-700">{errors.description.message}</span>}
+                                        {errors.followupIssue?.type === 'required' && <span className="label-text-alt text-red-700">{errors.followupIssue.message}</span>}
 
                                     </label>
                                 </div>
@@ -306,6 +326,8 @@ const FollowUp = () => {
                             <th>Date</th>
                             <th>Time</th>
                             <th>Description</th>
+                            <th>Next Followup Issue</th>
+                            <th>Action</th>
 
                         </tr>
                     </thead>
@@ -313,15 +335,16 @@ const FollowUp = () => {
                         {/* <!-- row 1 --> */}
 
                         {
-                            followUps?.map((followUp, index) =>
+                            followUps?.slice(0).reverse().map((followUp, index) =>
                                 <tr key={followUp._id} >
                                     <th>{index + 1}</th>
                                     <td>{followUp.companyName}</td>
                                     <td>{followUp.followUpType}</td>
                                     <td>{followUp.opportunity}</td>
-                                    <td>{followUp.date}</td>
+                                    <td>{followUp.datetime}</td>
                                     <td>{followUp.time}</td>
                                     <td>{followUp.description}</td>
+                                    <td>{followUp.followupIssue}</td>
                                     <td className='flex gap-4'>
                                         <Link to={`/dashboard/businessTypeEdit/${followUp._id}`}><FaEdit /></Link>
                                         <button onClick={() => handleDelete(followUp._id)}><MdDelete /></button>

@@ -21,7 +21,7 @@ const Login = () => {
     }
 
     if(gUser || user){
-        navigate("/dashboard");
+        navigate("/dashboard/dashboardhomepage");
     }
 
     let signInError;

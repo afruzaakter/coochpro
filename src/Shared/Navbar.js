@@ -23,7 +23,7 @@ const Navbar = () => {
 
     const menuItem = <>
         {
-            user && <li className='m-4 mr-60' > <NavLink className="rounded-lg " to='/dashboard'> Dashboard </NavLink> </li>
+            user && <li className='m-4 mr-60' > <NavLink className="rounded-lg " to='/dashboard/dashboardhomepage'> Dashboard </NavLink> </li>
 
         }
     </>

@@ -7,7 +7,7 @@ import { MdDashboard } from 'react-icons/md';
 // import { MdManageAccounts } from 'react-icons/md';
 import { FaChartBar } from 'react-icons/fa';
 import { RiArrowDownSFill } from 'react-icons/ri';
-import { AiOutlineDown } from 'react-icons/ai';
+import { MdOutlineDashboardCustomize } from 'react-icons/md';
 import { FiSettings } from 'react-icons/fi';
 import { FaUsers } from 'react-icons/fa';
 import { MdOutlineInventory } from 'react-icons/md';
@@ -44,7 +44,7 @@ const Dashboard = () => {
             <div className="drawer drawer-mobile ">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content">
-                    <h1 className='font-bold text-3xl mt-8 ml-4'>Dashboard</h1>
+                    
                     <Outlet></Outlet>
 
 
@@ -63,6 +63,14 @@ const Dashboard = () => {
                                     <input type='text' placeholder='Search' className={`text-base bg-transparent w-full text-white focus:outline-none ${!open && "hidden"} `} ></input>
                                 </div>
                                 <ul className='pt-2 animate__animated animate__fadeInLeft'>
+                                       {/* ***************************** Dashboard menu Accounts Start *********************************** */}
+                                    
+                                    
+                                    <li className={`text-gray-300 text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-600  text-xl  rounded-md mt-2  `}><Link to='/dashboard/dashboardhomepage' className='w-full font-medium border-b rounded-md uppercase hover:bg-gray-300 '>
+                                      
+                                    <span className={`text-xl  hover:text-gray-700 block ml-1  ${!open ? "text-xl" : "ml-0"} `} >  <MdOutlineDashboardCustomize  className='' /></span>
+                                    <span className={`${!open && 'hidden'}`}>Dashboard</span></Link></li>
+                            
 
 
                                     {/* ***************************** Dashboard menu CMR Start *********************************** */}
@@ -74,13 +82,29 @@ const Dashboard = () => {
                                         </div>
                                     </li>
                                     {
-                                        crmSubMenuOpen && <ul className='animate__animated animate__lightSpeedInLeft'>
+                                        crmSubMenuOpen && <ul className='animate__animated animate__fadeInLeft'>
 
-                                            <li className='text-gray-300 ml-8 text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-600    rounded-md mt-2  '><Link to='/dashboard/leadsEntry' className='w-full hover:bg-gray-300 '><MdKeyboardArrowRight />Leads Entry </Link></li>
+                                            <li className={`text-gray-300 ml-8 text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-600 rounded-md mt-2  ${!open && "ml-0"} `}><Link to='/dashboard/leadsEntry' className='w-full hover:bg-gray-300 '>
+                                               <span className={` ${!open? "border": "rounded-md " } `}><MdKeyboardArrowRight /></span>
+                                            <span className={`${!open && "hidden"} `}> Leads Entry</span>
+                                             </Link></li>
 
-                                            <li className='text-gray-300 ml-8 text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-600    rounded-md mt-2  '><Link to='/dashboard/followUp' className='w-full hover:bg-gray-300 '><MdKeyboardArrowRight />Follow Up </Link></li>
+                                            <li className={`text-gray-300 ml-8 text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-600 rounded-md mt-2  ${!open && "ml-0"} `}><Link to='/dashboard/followUp' className='w-full hover:bg-gray-300 '>
+                                               <span className={` ${!open? "border": "rounded-md " } `}><MdKeyboardArrowRight /></span>
+                                            <span className={`${!open && "hidden"} `}> Follow Up</span>
+                                             </Link></li>
 
-                                            <li className='text-gray-300 ml-8 text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-600    rounded-md mt-2  '><Link to='/dashboard/proposal' className='w-full hover:bg-gray-300 '><MdKeyboardArrowRight />Proposal</Link></li>
+                                            <li className={`text-gray-300 ml-8 text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-600 rounded-md mt-2  ${!open && "ml-0"} `}><Link to='/dashboard/proposal' className='w-full hover:bg-gray-300 '>
+                                               <span className={` ${!open? "border": "rounded-md " } `}><MdKeyboardArrowRight /></span>
+                                            <span className={`${!open && "hidden"} `}> Proposal</span>
+                                             </Link></li>
+
+                                            <li className={`text-gray-300 ml-8 text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-600 rounded-md mt-2  ${!open && "ml-0"} `}><Link to='/dashboard/crmreport' className='w-full hover:bg-gray-300 '>
+                                               <span className={` ${!open? "border": "rounded-md " } `}><MdKeyboardArrowRight /></span>
+                                            <span className={`${!open && "hidden"} `}> CRM Report</span>
+                                             </Link></li>
+
+                                           
                                         </ul>
                                     }
 
@@ -163,7 +187,12 @@ const Dashboard = () => {
                                                 {
                                                     librarySubMenuOpen && (
                                                         <ul className='animate__animated animate__fadeInLeft'>
-                                                            <li className='text-gray-300 ml-14 text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-600    rounded-md mt-2  '><Link to='/dashboard/gender' className='w-full hover:bg-gray-300 '><MdKeyboardArrowRight />Gender </Link></li>
+                                                            {/* <li className='text-gray-300 ml-14 text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-600    rounded-md mt-2  '><Link to='/dashboard/gender' className='w-full hover:bg-gray-300 '><MdKeyboardArrowRight />Gender </Link></li> */}
+
+                                                            <li className={`text-gray-300  text-sm  flex items-start ml-14  hover:bg-gray-50 hover:text-gray-600 rounded-md mt-2  ${!open && "ml-1"} `}><Link to='/dashboard/gender' className='w-full hover:bg-gray-300 '>
+                                               <span className={` ${!open? "border": "rounded-md " } `}><MdKeyboardArrowRight /></span>
+                                            <span className={`${!open && "hidden"} `}> Gender</span>
+                                             </Link></li>
 
                                                             <li className='text-gray-300 ml-14  text-sm  flex items-start   hover:bg-gray-50 hover:text-gray-600  rounded-md mt-2  '><Link className='w-full hover:bg-gray-300 ' to='/dashboard/religion'><MdKeyboardArrowRight />Religion</Link></li>
 

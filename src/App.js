@@ -32,6 +32,7 @@ import Settings from './Components/Dashboard/Settings/Settings';
 import Navbar from './Shared/Navbar';
 import NotFound from './Shared/NotFound';
 import LeadsEntry from './Components/Dashboard/CRM/LeadsEntry';
+import DashboardHomePage from './Components/Dashboard/DashboardHomePage';
 import FollowUp from './Components/Dashboard/CRM/FollowUp';
 import Proposal from './Components/Dashboard/CRM/Proposal';
 import LeadEntryEdit from './Components/Dashboard/CRM/LeadEntryEdit';
@@ -41,6 +42,7 @@ import Opportunity from './Components/Dashboard/Settings/Opportunity';
 import OpportunityEdit from './Components/Dashboard/Settings/OpportunityEdit';
 import FollowUpType from './Components/Dashboard/Settings/FollowUpType';
 import FollowUpTypeEdit from './Components/Dashboard/Settings/FollowUpTypeEdit';
+import CRMReport from './Components/Dashboard/CRM/CRMReport';
 
 function App() {
   return (
@@ -91,6 +93,8 @@ function App() {
          <Route path ='followUpTypeEdit/:id' element={<FollowUpTypeEdit/>}/>   
          <Route path='followUp' element ={<FollowUp/>} />     
          <Route path='proposal' element ={<Proposal/>} />     
+         <Route path='crmreport' element ={<CRMReport/>} />     
+         <Route path='dashboardhomepage' element ={<DashboardHomePage/>} />     
          
   
 

@@ -108,7 +108,7 @@ const Department = () => {
                         {/* <!-- row 1 --> */}
 
                         {
-                            departments?.map((department, index) =>
+                            departments?.reverse().map((department, index) =>
                                 <tr>
                                     <th>{index + 1}</th>
                                     <td>{department.department}</td>
