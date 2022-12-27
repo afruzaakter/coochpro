@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import { MdDelete } from 'react-icons/md';
 import { FaEdit } from 'react-icons/fa';
@@ -10,6 +10,7 @@ import Multiselect from 'multiselect-react-dropdown';
 
 const FollowUp = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
+    const {id} = useParams();
     const [updated, setUpdated] = useState(false);
     // ---------------------type of business  get method -----------------
     const [leads, setLeads] = useState([]);
@@ -39,20 +40,30 @@ const FollowUp = () => {
     }, []);
 
 
-    // --------------------- time  get method -----------------
-    const [genders, setGenders] = useState([]);
-    useEffect(() => {
-        fetch('http://localhost:5000/gender')
-            .then(res => res.json())
-            .then(data => setGenders(data));
 
-    }, []);
-    // --------------------- followup  Delete method -----------------
+      // --------------------- followup  Delete method -----------------
+
+    const [followUps, setFollowUps] = useState([]);
+  
     const handleDelete = () => {
+        const proceed = window.confirm('Are you sure?')
+        if (proceed) {
+            const url = `http://localhost:5000/followUp/${id}`
+            console.log(url)
+            fetch(url, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    const remaining = followUps.filter(followUp => followUp._id !== id)
+                    setLeads(remaining);
+                })
 
+        }
     }
     // --------------------- followup  get method -----------------
-    const [followUps, setFollowUps] = useState([]);
+   
 
     useEffect(() => {
         fetch('http://localhost:5000/followUp')
@@ -250,21 +261,6 @@ const FollowUp = () => {
                                     </label>
                                 </div>
 
-                                {/* --------------------------- Input field time data fatch ---------------- */}
-                                {/* <div className="form-control  ">
-                                <label>Time Select</label>
-                                <select {...register("gender")} type='checkbox'  className="input font-bold w-96  focus:outline-0 rounded-sm  border-gray-400 mt-1  w-full focus:border-blue-500  login-container-input ">
-                                    {
-                                        genders.map((gender) => <option> {gender.gender}</option>)
-                                    }
-
-
-                                </select>
-
-                            </div> */}
-
-                              
-
                                 {/* -----------------------  Contact Number Input field------------------ */}
                                 <div className="form-control ">
                                     <label>Next Follow Up Issue</label>
@@ -346,7 +342,7 @@ const FollowUp = () => {
                                     <td>{followUp.description}</td>
                                     <td>{followUp.followupIssue}</td>
                                     <td className='flex gap-4'>
-                                        <Link to={`/dashboard/businessTypeEdit/${followUp._id}`}><FaEdit /></Link>
+                                        <Link to={`/dashboard/followUp/${followUp._id}`}><FaEdit /></Link>
                                         <button onClick={() => handleDelete(followUp._id)}><MdDelete /></button>
                                     </td>
 
